@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 
+#include "SceneManager.h"
+#include "MainMenuScene.h"
 
 
 int main()
@@ -7,7 +9,14 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
     window.setFramerateLimit(60);
 
-    sf::Texture texture;
+    SceneManager sceneManager;
+    MainMenuScene mainMenuScene;
+
+    sceneManager.OpenScene(mainMenuScene);
+
+
+
+  /*  sf::Texture texture;
     if (!texture.loadFromFile("../Resources/CharacterPlaceHolder1.png"))
     {
         printf_s("unable to load find the texture");
@@ -15,7 +24,7 @@ int main()
 
     sf::Sprite sprite;
     sprite.setTexture(texture);
-    sprite.setPosition(sf::Vector2f(50,0));
+    sprite.setPosition(sf::Vector2f(50,0));*/
 
     while (window.isOpen())
     {
@@ -28,8 +37,13 @@ int main()
 
             }
         }
+
+        
         window.clear();
-        window.draw(sprite);
+
+        sceneManager.Step();
+        sceneManager.Draw(window);
+
         window.display() ;
     }
     return 0;
