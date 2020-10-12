@@ -25,7 +25,7 @@ class GameObject: public sf::Transformable{
 
 
 		virtual void Step();
-		virtual void Draw(sf::RenderWindow& window);
+		virtual void Draw(sf::RenderWindow& window) const;
 
 	private:
 		GameObject* Parent;

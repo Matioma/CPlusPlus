@@ -58,7 +58,7 @@ void GameObject::Step()
 	}
 }
 
-void GameObject::Draw(sf::RenderWindow& window)
+void GameObject::Draw(sf::RenderWindow& window) const
 {
 	for (GameObject* obj : Children) {
 		obj->Draw(window);

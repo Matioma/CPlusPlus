@@ -13,5 +13,5 @@ class Sprite: public GameObject {
 
 
 		void Step() override;
-		void Draw(sf::RenderWindow& window) override;
+		void Draw(sf::RenderWindow& window) const override;
 };

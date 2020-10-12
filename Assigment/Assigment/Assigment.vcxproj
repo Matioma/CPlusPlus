@@ -146,8 +146,10 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Resources.h" />

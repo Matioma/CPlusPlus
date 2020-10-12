@@ -10,7 +10,7 @@ void Scene::Step()
 {
 	GameObject::Step();
 }
-void Scene::Draw(sf::RenderWindow& window)
+void Scene::Draw(sf::RenderWindow& window) const
 {
 	GameObject::Draw(window);
 }

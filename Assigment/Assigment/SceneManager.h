@@ -16,6 +16,6 @@ class SceneManager : GameObject{
 		void OpenPreviousScene();
 
 
-		void Draw(sf::RenderWindow& window) override;
+		void Draw(sf::RenderWindow& window) const override;
 		void Step() override;
 };

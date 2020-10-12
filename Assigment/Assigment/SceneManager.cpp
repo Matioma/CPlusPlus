@@ -21,7 +21,7 @@ void SceneManager::OpenPreviousScene()
 	}
 }
 
-void SceneManager::Draw(sf::RenderWindow& window)
+void SceneManager::Draw(sf::RenderWindow& window) const
 {
 	if (sceneSprites.size() != 0) {
 		sceneSprites.top()->Draw(window);

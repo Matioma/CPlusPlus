@@ -14,6 +14,7 @@ class Resources {
 		~Resources();
 	private:
 		std::map<std::string, sf::Texture> LoadedTextures;
+		std::map<std::string, sf::Font> LoadedFonts;
 
 		static Resources* Instance;
 		Resources();

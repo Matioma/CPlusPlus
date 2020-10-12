@@ -38,7 +38,6 @@ sf::Texture* Resources::GetTexture(const std::string path)
         //It was Not possible to locate the file
         else {
             return nullptr;
-        
         }
     }
     //Get the Texture pointer
@@ -47,6 +46,8 @@ sf::Texture* Resources::GetTexture(const std::string path)
     }
     return nullptr;
 }
+
+
 
 
 Resources* Resources::GetInstance()

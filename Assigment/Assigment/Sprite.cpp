@@ -24,7 +24,7 @@ void Sprite::Step()
 	GameObject::Step();
 }
 
-void Sprite::Draw(sf::RenderWindow& window)
+void Sprite::Draw(sf::RenderWindow& window) const
 {
 	window.draw(spriteObject);
 	GameObject::Draw(window);
