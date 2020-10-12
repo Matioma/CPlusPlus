@@ -4,8 +4,11 @@
 
 Sprite::Sprite(std::string filePath)
 {
+	std::string path = "../Resources/Textures/" + filePath;
+	
+
 	Resources* res = Resources::GetInstance();
-	sf::Texture* texture = res->GetTexture(filePath);
+	sf::Texture* texture = res->GetTexture(path);
 
 	sf::Sprite sprite;
 	sprite.setTexture(*texture);
