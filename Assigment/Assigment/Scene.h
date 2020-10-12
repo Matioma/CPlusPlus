@@ -3,10 +3,13 @@
 #include <SFML/Graphics.hpp>
 
 #include "GameObject.h"
+#include "Sprite.h"
 
 class Scene: public GameObject {
 	public:
-	std::vector<sf::Sprite> sceneSprites;
+	std::vector<GameObject*> SceneObjects;
+
+	void AddSceneObject(GameObject* newObject);
 
 	Scene();
 	~Scene();
