@@ -19,7 +19,10 @@ Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)
 
 void Sprite::Step()
 {
-	printf_s("Yay");
+	GameObject::Step();
+
+	spriteObject.move(1, 0);
+	//printf_s("Sprite Step");
 }
 
 void Sprite::Draw(sf::RenderWindow& window)
