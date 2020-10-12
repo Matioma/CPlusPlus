@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Resources">
       <UniqueIdentifier>{8cbddcb5-9a22-4418-80f7-71124a86b032}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UIElements">
+      <UniqueIdentifier>{8afda561-8708-4911-9b8f-e0c0b949a23a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="TextBox.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\UIElements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,6 +12,9 @@ class Sprite: public GameObject {
 		Sprite(float x, float y, std::string filePath);
 
 
+		void SetWidth(float width);
+
+
 		void Step() override;
 		void Draw(sf::RenderWindow& window) const override;
 };
