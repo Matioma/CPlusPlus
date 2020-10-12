@@ -29,7 +29,6 @@ bool Resources::LoadTexture(const std::string path)
 
 sf::Texture* Resources::GetTexture(const std::string path)
 {
-    printf_s("%d \n", LoadedTextures.size());
     // If the texture with "path" key is not present in the map
     if (!LoadedTextures.count(path)) {
         //If managed to load "path"  file
