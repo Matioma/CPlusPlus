@@ -2,9 +2,14 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-class GameObject{
+class GameObject: public sf::Transformable{
 	public:
+
+
 		std::vector<GameObject*> Children;
+
+
+		
 
 		GameObject();
 		~GameObject();
@@ -16,7 +21,7 @@ class GameObject{
 		void SetParent(GameObject& gameObject);
 		GameObject* GetParent() const;
 
-
+		const sf::Vector2f getPosition() const ;
 
 
 		virtual void Step();

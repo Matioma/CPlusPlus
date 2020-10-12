@@ -1,7 +1,9 @@
 #include "GameObject.h"
+#include <iostream>
 
 void GameObject::AddChild(GameObject* gameObject)
 {
+
 	if (gameObject == nullptr) return;
 
 	
@@ -32,6 +34,23 @@ GameObject* GameObject::GetParent() const
 	return Parent;
 }
 
+const sf::Vector2f GameObject::getPosition() const
+{
+	sf::Vector2f globalPosition =Transformable::getPosition();
+	GameObject* referenceObject = GetParent();
+
+	//referenceObject = GetParent();
+
+	
+	while (referenceObject) {
+		//std::cout << referenceObject << std::endl;
+		
+		globalPosition += referenceObject->getPosition();
+		referenceObject = referenceObject->GetParent();
+	}
+	return globalPosition;
+}
+
 void GameObject::Step()
 {
 	for (GameObject* obj : Children) {
@@ -45,6 +64,9 @@ void GameObject::Draw(sf::RenderWindow& window)
 		obj->Draw(window);
 	}
 }
+
+
+
 
 
 GameObject::GameObject()

@@ -14,18 +14,19 @@ Sprite::Sprite(std::string filePath)
 
 Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)
 {
-	spriteObject.setPosition(x, y);
+	setPosition(x, y);
+	spriteObject.setPosition(getPosition());
 }
 
 void Sprite::Step()
 {
+	spriteObject.setPosition(getPosition());
 	GameObject::Step();
-
-	spriteObject.move(1, 0);
-	//printf_s("Sprite Step");
 }
 
 void Sprite::Draw(sf::RenderWindow& window)
 {
 	window.draw(spriteObject);
+	GameObject::Draw(window);
+	
 }
