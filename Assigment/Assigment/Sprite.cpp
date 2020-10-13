@@ -30,12 +30,18 @@ bool Sprite::IsMouseOver() const
 	return spriteBounds.contains(mousePos.x, mousePos.y);
 }
 
-void Sprite::SetWidth( float newWidth)
+
+/// <summary>
+/// Set width of the sprite
+/// </summary>
+/// <param name="newWidth"></param>
+void Sprite::SetSpriteWidth( float newWidth)
 {
 	sf::FloatRect rect = spriteObject.getLocalBounds();
 	float scaleX = newWidth / rect.width;
 	spriteObject.scale(scaleX, scaleX);
 }
+
 
 void Sprite::SetSpriteSize(float width, float heigth)
 {

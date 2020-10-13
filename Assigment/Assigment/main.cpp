@@ -2,44 +2,32 @@
 
 #include "SceneManager.h"
 #include "MainMenuScene.h"
+#include "GamePlayScene.h"
 #include "InputManager.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Nether FIghts");
     window.setFramerateLimit(60);
 
-    SceneManager sceneManager;
-    MainMenuScene mainMenuScene;
+    //SceneManager sceneManager;
+    //MainMenuScene mainMenuScene;
 
-    sceneManager.OpenScene(mainMenuScene);
+    SceneManager* sceneManager = SceneManager::GetInstance();
+    SceneManager::GetInstance()->OpenScene(new MainMenuScene());
+    //sceneManager.OpenScene();
     
-    InputManager::getInstance()->Initialize(window, sceneManager);
+    InputManager::getInstance()->Initialize(window, (*sceneManager));
 
 
     while (window.isOpen())
     {
         InputManager::getInstance()->PollEvents();
 
-
-        //sf::Vector2i mousePosition = InputManager::getInstance()->GetMousePos();
-     
-
-      /*  sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-            if (event.type == sf::Event::KeyPressed) {
-
-            }
-        }*/
-
-        
         window.clear();
 
-        sceneManager.Step();
-        sceneManager.Draw(window);
+        SceneManager::GetInstance()->Step();
+        SceneManager::GetInstance()->Draw(window);
 
         window.display() ;
     }

@@ -3,6 +3,8 @@
 #include "Resources.h"
 #include "TextBox.h"
 #include "Button.h"
+#include "SceneManager.h"
+#include "GamePlayScene.h"
 
 MainMenuScene::~MainMenuScene()
 {
@@ -14,8 +16,9 @@ MainMenuScene::MainMenuScene() {
 
 void MainMenuScene::InitializeScene()
 {
+
     Sprite* background = new Sprite(0,0, "Background.png");
-    background->SetWidth(1280);
+    background->SetSpriteWidth(1280);
     AddChild(background);
 
     TextBox* text = new TextBox("Nether Fights");
@@ -25,30 +28,20 @@ void MainMenuScene::InitializeScene()
 
     Sprite* image = new Sprite(0,0,"GasMask.jpg");
     image->setPosition(1280 / 2 - 220, 300);
-    image->SetWidth(1280 / 3);
+    image->SetSpriteWidth(1280 / 3);
     AddChild(image);
 
 
-    //background.
-
-    //Sprite* sprite = new Sprite(150, 0, "CharacterPlaceHolder1.png");
-
-    //Sprite* testSprite = new Sprite(150, 100, "CharacterPlaceHolder2.png");
-    //sprite->AddChild(testSprite);
-
-    ////Button->
-    //testSprite->AddChild(new Sprite(150, 50, "CharacterPlaceHolder2.png"));
-    //testSprite->AddChild(new Sprite(300, 150, "CharacterPlaceHolder1.png"));
-    //sprite->AddChild(new TextBox(120,0));
-
-
-
+    //Buttons
     Button* button = new Button("CharacterPlaceHolder1.png");
 
     button->AddText("Play");
     button->setPosition(1280-300, 150);
     button->SetSpriteSize(150,50);
-    button->onClick = []() {printf_s("Button lambda method button Pressed"); };
+    button->onClick = []() {
+        //Scene
+        SceneManager::GetInstance()->OpenScene(new GamePlayScene());
+        printf_s("Button lambda method button Pressed \n"); };
     AddChild(button);
 
 
@@ -58,7 +51,7 @@ void MainMenuScene::InitializeScene()
     button->setPosition(1280 - 300, 150);
     button->move(0, 120);
     button->SetSpriteSize(150, 50);
-    button->onClick = []() {printf_s("Button lambda method button Pressed"); };
+    button->onClick = []() {printf_s("Button lambda method button Pressed \n"); };
     AddChild(button);
   
     button = new Button("CharacterPlaceHolder1.png");
@@ -67,7 +60,7 @@ void MainMenuScene::InitializeScene()
     button->setPosition(1280 - 300, 150);
     button->move(0, 240);
     button->SetSpriteSize(150, 50);
-    button->onClick = []() {printf_s("Button lambda method button Pressed"); };
+    button->onClick = []() {printf_s("Button lambda method button Pressed \n"); };
     AddChild(button);
 
 

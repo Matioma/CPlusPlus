@@ -13,7 +13,7 @@ class Sprite: public GameObject {
 
 		virtual bool IsMouseOver() const override;
 
-		void SetWidth(float width);
+		void SetSpriteWidth(float width);
 		void SetSpriteSize(float width, float heigth);
 
 

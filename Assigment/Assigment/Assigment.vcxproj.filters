@@ -60,6 +60,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GamePlayScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="InteractableObject.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayScene.h">
+      <Filter>Header Files\SceneH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
