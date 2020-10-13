@@ -12,9 +12,6 @@ public:
 
 	void AddText(std::string);
 	void SetSize(sf::Vector2f);
-
-
-	void OnClick() override;
 private:
 	std::string text;
 	sf::Vector2f size;
