@@ -2,7 +2,7 @@
 
 #include "SceneManager.h"
 #include "MainMenuScene.h"
-
+#include "InputManager.h"
 
 int main()
 {
@@ -13,22 +13,21 @@ int main()
     MainMenuScene mainMenuScene;
 
     sceneManager.OpenScene(mainMenuScene);
+    
+    
+    InputManager::getInstance()->Initialize(window);
 
 
-
-  /*  sf::Texture texture;
-    if (!texture.loadFromFile("../Resources/CharacterPlaceHolder1.png"))
-    {
-        printf_s("unable to load find the texture");
-    }
-
-    sf::Sprite sprite;
-    sprite.setTexture(texture);
-    sprite.setPosition(sf::Vector2f(50,0));*/
 
     while (window.isOpen())
     {
-        sf::Event event;
+        InputManager::getInstance()->Update();
+
+
+        //sf::Vector2i mousePosition = InputManager::getInstance()->GetMousePos();
+     
+
+      /*  sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -36,7 +35,7 @@ int main()
             if (event.type == sf::Event::KeyPressed) {
 
             }
-        }
+        }*/
 
         
         window.clear();

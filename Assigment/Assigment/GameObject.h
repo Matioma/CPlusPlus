@@ -8,9 +8,6 @@ class GameObject: public sf::Transformable{
 
 		std::vector<GameObject*> Children;
 
-
-		
-
 		GameObject();
 		~GameObject();
 		
