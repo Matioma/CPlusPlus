@@ -54,6 +54,7 @@ const sf::Vector2f GameObject::getPosition() const
 void GameObject::Step()
 {
 	for (GameObject* obj : Children) {
+		obj->IsMouseOver();
 		obj->Step();
 	}
 }

@@ -1,6 +1,7 @@
 #include "Sprite.h"
 
 #include "Resources.h"
+#include "InputManager.h"
 
 Sprite::Sprite(std::string filePath)
 {
@@ -19,6 +20,14 @@ Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)
 {
 	setPosition(x, y);
 	spriteObject.setPosition(getPosition());
+}
+
+bool Sprite::IsMouseOver() const
+{
+	sf::Vector2i mousePos = InputManager::getInstance()->GetMousePos();
+	sf::FloatRect  spriteBounds = spriteObject.getGlobalBounds();
+
+	return spriteBounds.contains(mousePos.x, mousePos.y);
 }
 
 void Sprite::SetWidth( float newWidth)

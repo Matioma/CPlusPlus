@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MainMenuScene.h" />

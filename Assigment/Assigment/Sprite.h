@@ -11,6 +11,7 @@ class Sprite: public GameObject {
 		Sprite(std::string filePath);
 		Sprite(float x, float y, std::string filePath);
 
+		virtual bool IsMouseOver() const override;
 
 		void SetWidth(float width);
 

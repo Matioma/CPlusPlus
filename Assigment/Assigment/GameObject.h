@@ -2,10 +2,10 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-class GameObject: public sf::Transformable{
+#include "InteractableObject.h"
+
+class GameObject: public sf::Transformable, public InteractableObject{
 	public:
-
-
 		std::vector<GameObject*> Children;
 
 		GameObject();

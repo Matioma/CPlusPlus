@@ -28,6 +28,10 @@ void InputManager::Initialize(sf::RenderWindow& window)
 
 void InputManager::Update()
 {
+    if (!renderWindow) {
+        printf_s("render window is NULL make sure you have initialized InputManager");
+    }
+
     while (renderWindow->pollEvent(event))
     {
         if (event.type == sf::Event::Closed)
