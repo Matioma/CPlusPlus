@@ -55,12 +55,6 @@ const sf::Vector2f GameObject::getPosition() const
 void GameObject::Step()
 {
 	for (GameObject* obj : Children) {
-		//if (obj->IsMouseOver()) {
-		//	/*if(InputManager::getInstance()->GetLastEvent().type == sf::Event::MouseButtonPressed)
-		//		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		//			OnClick();
-		//		}*/
-		//}
 		obj->Step();
 	}
 }

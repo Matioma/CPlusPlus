@@ -8,7 +8,6 @@ SceneManager::~SceneManager()
 {
 }
 
-
 void SceneManager::OpenScene(Scene& SceneToOpen)
 {
 	loadedScenes.push(&SceneToOpen);
