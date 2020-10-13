@@ -22,6 +22,7 @@ class GameObject: public sf::Transformable, public InteractableObject{
 
 
 		virtual void Step();
+		void ProccessInput(sf::Event& event);
 		virtual void Draw(sf::RenderWindow& window) const;
 
 	private:

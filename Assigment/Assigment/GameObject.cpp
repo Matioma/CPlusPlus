@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include <iostream>
+#include "InputManager.h"
 
 void GameObject::AddChild(GameObject* gameObject)
 {
@@ -54,10 +55,16 @@ const sf::Vector2f GameObject::getPosition() const
 void GameObject::Step()
 {
 	for (GameObject* obj : Children) {
-		obj->IsMouseOver();
+		//if (obj->IsMouseOver()) {
+		//	/*if(InputManager::getInstance()->GetLastEvent().type == sf::Event::MouseButtonPressed)
+		//		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		//			OnClick();
+		//		}*/
+		//}
 		obj->Step();
 	}
 }
+
 
 void GameObject::Draw(sf::RenderWindow& window) const
 {

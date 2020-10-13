@@ -13,8 +13,14 @@ MainMenuScene::MainMenuScene() {
 
 void MainMenuScene::InitializeScene()
 {
-    Sprite* Button = new Sprite(400, 500, "CharacterPlaceHolder1.png");
-    Button->AddChild(new Sprite(50, 0, "CharacterPlaceHolder2.png"));
+    Sprite* Button = new Sprite(0, 0, "CharacterPlaceHolder1.png");
+
+    Sprite* testSprite = new Sprite(150, 100, "CharacterPlaceHolder2.png");
+    Button->AddChild(testSprite);
+
+    //Button->
+    testSprite->AddChild(new Sprite(150, 50, "CharacterPlaceHolder2.png"));
+    testSprite->AddChild(new Sprite(300, 150, "CharacterPlaceHolder1.png"));
     Button->AddChild(new TextBox(120,0,"Roboto-Black.ttf"));
 
 

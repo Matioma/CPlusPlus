@@ -5,16 +5,13 @@
 
 class SceneManager : GameObject{
 	public:
-		std::stack<Scene*> sceneSprites;
+		std::stack<Scene*> loadedScenes;
 		
 		SceneManager();
 		~SceneManager();
 
-
-
 		void OpenScene(Scene &SceneToOpen);
 		void OpenPreviousScene();
-
 
 		void Draw(sf::RenderWindow& window) const override;
 		void Step() override;

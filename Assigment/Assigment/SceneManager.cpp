@@ -11,26 +11,27 @@ SceneManager::~SceneManager()
 
 void SceneManager::OpenScene(Scene& SceneToOpen)
 {
-	sceneSprites.push(&SceneToOpen);
+	loadedScenes.push(&SceneToOpen);
 }
 
 void SceneManager::OpenPreviousScene()
 {
-	if (sceneSprites.size() > 1) {
-		sceneSprites.pop();
+	if (loadedScenes.size() > 1) {
+		loadedScenes.pop();
 	}
 }
 
 void SceneManager::Draw(sf::RenderWindow& window) const
 {
-	if (sceneSprites.size() != 0) {
-		sceneSprites.top()->Draw(window);
+	if (loadedScenes.size() != 0) {
+		loadedScenes.top()->Draw(window);
 	}
 }
 
+
 void SceneManager::Step()
 {
-	if (sceneSprites.size() != 0) {
-		sceneSprites.top()->Step();
+	if (loadedScenes.size() != 0) {
+		loadedScenes.top()->Step();
 	}
 }

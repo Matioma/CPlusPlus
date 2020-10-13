@@ -14,14 +14,12 @@ int main()
 
     sceneManager.OpenScene(mainMenuScene);
     
-    
-    InputManager::getInstance()->Initialize(window);
-
+    InputManager::getInstance()->Initialize(window, sceneManager);
 
 
     while (window.isOpen())
     {
-        InputManager::getInstance()->Update();
+        InputManager::getInstance()->PollEvents();
 
 
         //sf::Vector2i mousePosition = InputManager::getInstance()->GetMousePos();
