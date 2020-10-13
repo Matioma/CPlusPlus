@@ -8,9 +8,9 @@ Button::Button(std::string path):Sprite(path)
 }
 
 void Button::BuildElement() {
-	TextBox textBox(5, 10, "Hello");
-
-	auto button = AddChild(&textBox);
+	TextBox* textBox = new TextBox(5, 10, "Hello");
+	AddChild(textBox);
+	//auto button = AddChild(&textBox);
 }
 
 
