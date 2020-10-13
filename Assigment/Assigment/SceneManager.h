@@ -12,7 +12,7 @@ class SceneManager : GameObject{
 
 		static SceneManager* GetInstance();
 		
-		void OpenScene(Scene &SceneToOpen);
+		//void OpenScene(Scene &SceneToOpen);
 		void OpenScene(Scene* SceneToOpen);
 		void OpenPreviousScene();
 

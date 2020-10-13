@@ -23,10 +23,12 @@ SceneManager* SceneManager::GetInstance()
 	return Instance;
 }
 
-void SceneManager::OpenScene(Scene& SceneToOpen)
-{
-	loadedScenes.push(&SceneToOpen);
-}
+//void SceneManager::OpenScene(Scene& SceneToOpen)
+//{
+//	loadedScenes.push(&SceneToOpen);
+//}
+//
+
 
 void SceneManager::OpenScene(Scene* SceneToOpen)
 {

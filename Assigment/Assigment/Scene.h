@@ -13,6 +13,6 @@ class Scene: public GameObject {
 	virtual void InitializeScene()=0;
 
 
-	void Step() override;
+	//void Step() override;
 	void Draw(sf::RenderWindow& window) const override;
 };
