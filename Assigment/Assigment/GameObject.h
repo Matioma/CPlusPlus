@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <SFML/Graphics.hpp>
-
 #include "InteractableObject.h"
 
 class GameObject: public sf::Transformable, public InteractableObject{
@@ -13,16 +12,14 @@ class GameObject: public sf::Transformable, public InteractableObject{
 		
 		
 		void AddChild(GameObject* gameObject);
-
 		void RemoveChild(GameObject* gameObject);
-		void SetParent(GameObject& gameObject);
-		GameObject* GetParent() const;
 
+		void SetParent(GameObject& gameObject);
+
+		GameObject* const GetParent() const;
 		const sf::Vector2f getPosition() const ;
 
-
 		virtual void Step();
-		void ProccessInput(sf::Event& event);
 		virtual void Draw(sf::RenderWindow& window) const;
 
 	private:

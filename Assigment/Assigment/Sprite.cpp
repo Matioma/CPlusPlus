@@ -39,7 +39,6 @@ void Sprite::SetWidth( float newWidth)
 
 void Sprite::Step()
 {
-	move(10, 1);
 	spriteObject.setPosition(getPosition());
 	GameObject::Step();
 }
