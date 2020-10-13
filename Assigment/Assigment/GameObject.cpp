@@ -2,11 +2,16 @@
 #include <iostream>
 #include "InputManager.h"
 
-void GameObject::AddChild(GameObject* gameObject)
+GameObject& GameObject::AddChild(GameObject* gameObject)
 {
-	if (gameObject == nullptr) return;
+	if (gameObject == nullptr) {
+		printf_s("Tried to add a null pointer object as a child");
+	} 
+
 	gameObject->SetParent(*this);
 	Children.push_back(gameObject);
+
+	return *gameObject;
 }
 
 void GameObject::RemoveChild(GameObject* gameObject)

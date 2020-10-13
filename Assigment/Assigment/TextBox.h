@@ -8,9 +8,11 @@ class TextBox : public GameObject {
 		std::string Message;
 	
 
-		TextBox(std::string filePath);
-		TextBox(float x, float y, std::string filePath);
+		TextBox( std::string message ="Default Text", std::string fontFile = "Roboto-Black.ttf");
+		TextBox(float x, float y, std::string message = "Default Text", std::string filePath="Roboto-Black.ttf");
 
+		void SetMessage(std::string newMessage);
+		
 
 		void Step() override;
 		void Draw(sf::RenderWindow& window) const override;

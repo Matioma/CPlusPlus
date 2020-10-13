@@ -37,6 +37,14 @@ void Sprite::SetWidth( float newWidth)
 	spriteObject.scale(scaleX, scaleX);
 }
 
+void Sprite::SetSpriteSize(float width, float heigth)
+{
+	sf::FloatRect rect = spriteObject.getLocalBounds();
+	float scaleX = width / rect.width;
+	float scaleY = heigth / rect.height;
+	spriteObject.setScale(scaleX, scaleY);
+}
+
 void Sprite::Step()
 {
 	spriteObject.setPosition(getPosition());

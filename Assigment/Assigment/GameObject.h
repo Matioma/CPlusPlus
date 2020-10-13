@@ -11,7 +11,7 @@ class GameObject: public sf::Transformable, public InteractableObject{
 		~GameObject();
 		
 		
-		void AddChild(GameObject* gameObject);
+		GameObject& AddChild(GameObject* gameObject);
 		void RemoveChild(GameObject* gameObject);
 
 		void SetParent(GameObject& gameObject);
