@@ -8,6 +8,8 @@ class GameObject: public sf::Transformable, public InteractableObject{
 		std::vector<GameObject*> Children;
 
 		GameObject();
+		//GameObject(GameObject& gameObject);
+
 		~GameObject();
 		
 		

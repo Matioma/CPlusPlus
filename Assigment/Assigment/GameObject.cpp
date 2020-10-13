@@ -70,6 +70,17 @@ GameObject::GameObject()
 {
 }
 
+//GameObject::GameObject(GameObject& gameObject)
+//{
+//	/*for (GameObject obj : gameObject.Children) {
+//
+//
+//	}*/
+//	//this->Children = gameObject.Children;
+//}
+//
+
+
 GameObject::~GameObject() {
 	for (auto obj : Children) {
 		delete obj;

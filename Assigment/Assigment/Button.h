@@ -7,6 +7,8 @@ class Button : public Sprite
 {
 public:
 	Button(std::string backgroundFilePath = "Background.png");
+	Button(Button& button);
+
 
 	void BuildElement();
 

@@ -6,6 +6,11 @@ Button::Button(std::string path):Sprite(path)
 {
 	BuildElement();
 }
+//
+//Button::Button(Button& button)
+//{
+//
+//}
 
 void Button::BuildElement() {
 

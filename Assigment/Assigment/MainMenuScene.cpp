@@ -18,6 +18,17 @@ void MainMenuScene::InitializeScene()
     background->SetWidth(1280);
     AddChild(background);
 
+    TextBox* text = new TextBox("Nether Fights");
+    text->setPosition(1280/2 -50, 30);
+    AddChild(text);
+
+
+    Sprite* image = new Sprite(0,0,"GasMask.jpg");
+    image->setPosition(1280 / 2 - 220, 300);
+    image->SetWidth(1280 / 3);
+    AddChild(image);
+
+
     //background.
 
     //Sprite* sprite = new Sprite(150, 0, "CharacterPlaceHolder1.png");
@@ -38,8 +49,27 @@ void MainMenuScene::InitializeScene()
     button->setPosition(1280-300, 150);
     button->SetSpriteSize(150,50);
     button->onClick = []() {printf_s("Button lambda method button Pressed"); };
-    
     AddChild(button);
+
+
+    button = new Button("CharacterPlaceHolder1.png");
+
+    button->AddText("Reset");
+    button->setPosition(1280 - 300, 150);
+    button->move(0, 120);
+    button->SetSpriteSize(150, 50);
+    button->onClick = []() {printf_s("Button lambda method button Pressed"); };
+    AddChild(button);
+  
+    button = new Button("CharacterPlaceHolder1.png");
+
+    button->AddText("Exit");
+    button->setPosition(1280 - 300, 150);
+    button->move(0, 240);
+    button->SetSpriteSize(150, 50);
+    button->onClick = []() {printf_s("Button lambda method button Pressed"); };
+    AddChild(button);
+
 
 
     //AddChild(sprite);
