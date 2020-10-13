@@ -6,7 +6,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
     window.setFramerateLimit(60);
 
     SceneManager sceneManager;

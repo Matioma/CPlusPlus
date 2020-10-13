@@ -10,9 +10,9 @@ TextBox::TextBox( std::string message, std::string filePath) {
 	}
 	textObject.setFont(font);
 	textObject.setString(message);
-	textObject.setCharacterSize(24);
+	//textObject.setCharacterSize(24);
 	textObject.setFillColor(sf::Color::Black);
-	textObject.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	//textObject.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 TextBox::TextBox(float x, float y, std::string message, std::string filePath ): TextBox(message, filePath) {

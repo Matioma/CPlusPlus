@@ -8,15 +8,14 @@ Button::Button(std::string path):Sprite(path)
 }
 
 void Button::BuildElement() {
-	TextBox* textBox = new TextBox(5, 10, "Hello");
-	
-	AddChild(textBox);
+
 }
 
 
 void Button::AddText(std::string message)
 {
-	
+	TextBox* textBox = new TextBox(5, 10, message);
+	AddChild(textBox);
 }
 
 void Button::SetSize(sf::Vector2f size)
