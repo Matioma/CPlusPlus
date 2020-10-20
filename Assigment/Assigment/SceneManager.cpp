@@ -2,8 +2,15 @@
 
 SceneManager* SceneManager::Instance = 0;
 
-SceneManager::SceneManager()
+SceneManager::SceneManager(sf::RenderWindow& windowRef) : window(windowRef)
 {
+	if (Instance == 0) {
+		Instance = this;
+	}
+	else {
+		printf_s("Tried to create second instance of SceneManager, deleted it");
+		delete this;
+	}
 }
 
 SceneManager::~SceneManager()
@@ -18,7 +25,8 @@ SceneManager::~SceneManager()
 SceneManager* const SceneManager::GetInstance()
 {
 	if (Instance == 0) {
-		Instance = new SceneManager();
+		printf_s("SceneManager was not instantiated, make sure it has build constructed and that it was not deleted before the call");
+		//Instance = new SceneManager();
 	}
 	return Instance;
 }
@@ -40,9 +48,9 @@ Scene& SceneManager::GetActiveScene() const{
 	return (*loadedScenes.top());
 }
 
-void SceneManager::Draw( sf::RenderWindow& window) const
+void SceneManager::Draw() const
 {
-	GetActiveScene().Draw(window);
+	GetActiveScene().Draw(this->window);
 }
 
 void SceneManager::Step()

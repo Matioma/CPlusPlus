@@ -4,10 +4,11 @@
 #include "Scene.h"
 #include "IRenewable.h"
 
-class SceneManager : IRenuable{
+class SceneManager{
 	public:
 		std::stack<Scene*> loadedScenes;
-		
+
+		SceneManager(sf::RenderWindow& windowRef) ;
 		
 		~SceneManager();
 		static SceneManager* const GetInstance();
@@ -17,9 +18,11 @@ class SceneManager : IRenuable{
 
 		Scene& GetActiveScene() const;
 
-		void Draw(sf::RenderWindow& window) const override;
-		void Step() override;
+		void Draw() const;
+		void Step();
 private:
+	sf::RenderWindow& window;
+	
 	static SceneManager* Instance;
-	SceneManager();
+	
 };
