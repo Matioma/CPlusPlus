@@ -24,7 +24,7 @@ Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)
 
 bool Sprite::IsMouseOver() const
 {
-	sf::Vector2i mousePos = InputManager::getInstance()->GetMousePos();
+	sf::Vector2i mousePos = InputManager::GetInstance()->GetMousePos();
 	sf::FloatRect  spriteBounds = spriteObject.getGlobalBounds();
 
 	return spriteBounds.contains(mousePos.x, mousePos.y);

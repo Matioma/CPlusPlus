@@ -13,16 +13,16 @@ int main()
     //SceneManager sceneManager;
     //MainMenuScene mainMenuScene;
 
-    SceneManager* sceneManager = SceneManager::GetInstance();
+    //SceneManager* sceneManager = SceneManager::GetInstance();
     SceneManager::GetInstance()->OpenScene(new MainMenuScene());
     //sceneManager.OpenScene();
     
-    InputManager::getInstance()->Initialize(window, (*sceneManager));
+    InputManager::GetInstance()->Initialize(window, *SceneManager::GetInstance());
 
 
     while (window.isOpen())
     {
-        InputManager::getInstance()->PollEvents();
+        InputManager::GetInstance()->PollEvents();
 
         window.clear();
 

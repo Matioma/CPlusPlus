@@ -8,7 +8,6 @@ class GameObject: public sf::Transformable, public InteractableObject{
 		std::vector<GameObject*> Children;
 
 		GameObject();
-		//GameObject(GameObject& gameObject);
 
 		~GameObject();
 		
@@ -24,6 +23,7 @@ class GameObject: public sf::Transformable, public InteractableObject{
 		virtual void Step();
 		virtual void Draw(sf::RenderWindow& window) const;
 
+		virtual void HandleInput(const sf::Event& event);
 	private:
 		GameObject* Parent;
 };

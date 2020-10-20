@@ -5,16 +5,14 @@
 class InputManager {
 public:
 	~InputManager();
-	static InputManager* getInstance();
+	static InputManager* GetInstance();
 
 
 	void Initialize(sf::RenderWindow& window, SceneManager& sceneManager);
-	
 	void PollEvents();
 	const sf::Vector2i GetMousePos() const;
+	void HandleSceneInput(const sf::Event& eventType);
 private:
-	void HandleActiveSceneInput(sf::Event::EventType eventType);
-	void CallInputEvents(GameObject* obj, sf::Event::EventType& eventType);
 
 	sf::Event event;
 	sf::RenderWindow* renderWindow;

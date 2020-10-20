@@ -2,9 +2,7 @@
 
 
 InputManager* InputManager::Instance = 0;
-InputManager::InputManager() {
-
-
+InputManager::InputManager():sceneManager() {
 }
 
 InputManager::~InputManager()
@@ -13,7 +11,7 @@ InputManager::~InputManager()
     delete Instance;
 }
 
-InputManager* InputManager::getInstance()
+InputManager* InputManager::GetInstance()
 {
     if (Instance == 0) {
         Instance = new InputManager();
@@ -38,9 +36,7 @@ void InputManager::PollEvents()
         if (this->event.type == sf::Event::Closed) {
             renderWindow->close();
         }
-        if (this->event.type == sf::Event::MouseButtonPressed) {
-            HandleActiveSceneInput(this->event.type);
-        }
+        HandleSceneInput(this->event);
     }
 }
 
@@ -50,26 +46,9 @@ const sf::Vector2i InputManager::GetMousePos() const
     return mousePosition;
 }
 
-void InputManager::HandleActiveSceneInput(sf::Event::EventType eventType)
-{
-    //IF there are no scenes
-    if (this->sceneManager->loadedScenes.size() == 0) {
-        return;
-    }
+void InputManager::HandleSceneInput(const sf::Event& sfevent) {
     Scene* scene = this->sceneManager->loadedScenes.top();
-
     for (GameObject* obj : scene->Children) {
-        CallInputEvents(obj, eventType);
-    }
-}
-
-void InputManager::CallInputEvents(GameObject* obj, sf::Event::EventType& eventType) {
-    if (this->event.mouseButton.button == sf::Mouse::Left) {
-        if (obj->IsMouseOver())
-            obj->OnClick();
-    }
-
-    for (GameObject* obj : obj->Children) {
-        CallInputEvents(obj, eventType);
+        obj->HandleInput(sfevent);
     }
 }

@@ -66,20 +66,22 @@ void GameObject::Draw(sf::RenderWindow& window) const
 	}
 }
 
+void GameObject::HandleInput(const sf::Event& event)
+{
+	if (event.type == sf::Event::MouseButtonPressed) {
+		if (event.mouseButton.button == sf::Mouse::Left) {
+			if (this->IsMouseOver())
+				this->OnClick();
+		}
+	}
+	for (GameObject* obj : Children) {
+		obj->HandleInput(event);
+	}
+}
+
 GameObject::GameObject()
 {
 }
-
-//GameObject::GameObject(GameObject& gameObject)
-//{
-//	/*for (GameObject obj : gameObject.Children) {
-//
-//
-//	}*/
-//	//this->Children = gameObject.Children;
-//}
-//
-
 
 GameObject::~GameObject() {
 	for (auto obj : Children) {
