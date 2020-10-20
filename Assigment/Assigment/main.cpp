@@ -11,20 +11,20 @@ int main()
     window.setFramerateLimit(60);
 
     SceneManager sceneManager(window);
+    InputManager inputManager(window);
 
 
     SceneManager::GetInstance()->OpenScene(new MainMenuScene());
 
-    InputManager::GetInstance()->Initialize(window, *SceneManager::GetInstance());
-
-
     while (window.isOpen())
     {
-        InputManager::GetInstance()->PollEvents();
+        //Register input events
+        inputManager.PollEvents();
 
+        //Game Loop
         window.clear();
-        SceneManager::GetInstance()->Step();
-        SceneManager::GetInstance()->Draw();
+        sceneManager.Step();
+        sceneManager.Draw();
         window.display() ;
     }
     return 0;

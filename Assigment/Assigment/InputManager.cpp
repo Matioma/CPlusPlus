@@ -2,39 +2,35 @@
 
 
 InputManager* InputManager::Instance = 0;
-InputManager::InputManager():sceneManager() {
+InputManager::InputManager(sf::RenderWindow& windowRef):renderWindow(windowRef){
+    if (Instance == 0) {
+        Instance = this;
+    }
+    else {
+        printf_s("Tried to create second instance of InputManager, deleted it");
+        this->~InputManager();
+    }
 }
 
 InputManager::~InputManager()
 {
-    renderWindow = nullptr;
-    delete Instance;
 }
 
 InputManager* InputManager::GetInstance()
 {
     if (Instance == 0) {
-        Instance = new InputManager();
+        printf_s("InputManager instance was not created, make sure it has build constructed and that it was not deleted before the call");
     }
     return Instance;
 }
 
-void InputManager::Initialize(sf::RenderWindow& window,SceneManager &sceneManager)
-{
-    renderWindow = &window;
-    this->sceneManager = &sceneManager;
-}
 
 void InputManager::PollEvents()
 {
-    if (!renderWindow) {
-        printf_s("render window is NULL make sure you have initialized InputManager");
-    }
-
-    while (renderWindow->pollEvent(this->event))
+    while (renderWindow.pollEvent(this->event))
     {
         if (this->event.type == sf::Event::Closed) {
-            renderWindow->close();
+            renderWindow.close();
         }
         HandleSceneInput(this->event);
     }
@@ -42,13 +38,12 @@ void InputManager::PollEvents()
 
 const sf::Vector2i InputManager::GetMousePos() const
 {
-    sf::Vector2i mousePosition = sf::Mouse::getPosition(*renderWindow);
-    return mousePosition;
+    return sf::Mouse::getPosition(renderWindow);
 }
 
 void InputManager::HandleSceneInput(const sf::Event& sfevent) {
-    Scene* scene = this->sceneManager->loadedScenes.top();
-    for (GameObject* obj : scene->Children) {
+    Scene& scene = SceneManager::GetInstance()->GetActiveScene();
+    for (GameObject* obj : scene.Children) {
         obj->HandleInput(sfevent);
     }
 }

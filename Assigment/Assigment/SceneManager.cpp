@@ -9,7 +9,7 @@ SceneManager::SceneManager(sf::RenderWindow& windowRef) : window(windowRef)
 	}
 	else {
 		printf_s("Tried to create second instance of SceneManager, deleted it");
-		delete this;
+		this->~SceneManager();
 	}
 }
 
@@ -26,7 +26,6 @@ SceneManager* const SceneManager::GetInstance()
 {
 	if (Instance == 0) {
 		printf_s("SceneManager was not instantiated, make sure it has build constructed and that it was not deleted before the call");
-		//Instance = new SceneManager();
 	}
 	return Instance;
 }
