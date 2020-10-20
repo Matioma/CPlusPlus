@@ -156,6 +156,7 @@
     <ClInclude Include="GamePlayScene.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InteractableObject.h" />
+    <ClInclude Include="IRenewable.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MainMenuScene.h" />

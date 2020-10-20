@@ -28,6 +28,9 @@
     <Filter Include="Header Files\UIElements">
       <UniqueIdentifier>{8afda561-8708-4911-9b8f-e0c0b949a23a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{adf99be8-5bea-42f9-9f80-33289e78adcf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -95,11 +98,14 @@
     <ClInclude Include="InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InteractableObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GamePlayScene.h">
       <Filter>Header Files\SceneH</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableObject.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenewable.h">
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

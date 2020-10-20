@@ -6,11 +6,6 @@ Button::Button(std::string path):Sprite(path)
 {
 	BuildElement();
 }
-//
-//Button::Button(Button& button)
-//{
-//
-//}
 
 void Button::BuildElement() {
 
@@ -27,8 +22,3 @@ void Button::SetSize(sf::Vector2f size)
 {
 	SetSpriteSize(size.x, size.y);
 }
-
-//void Button::OnClick()
-//{
-//	printf_s("Default button Pressed");
-//}

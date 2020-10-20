@@ -52,14 +52,14 @@ const sf::Vector2f GameObject::getPosition() const
 	return globalPosition;
 }
 
-void GameObject::Step()
+void GameObject::Step() 
 {
 	for (GameObject* obj : Children) {
 		obj->Step();
 	}
 }
 
-void GameObject::Draw(sf::RenderWindow& window) const
+void GameObject::Draw(sf::RenderWindow& window) const 
 {
 	for (GameObject* obj : Children) {
 		obj->Draw(window);

@@ -15,20 +15,13 @@ SceneManager::~SceneManager()
 	}
 }
 
-SceneManager* SceneManager::GetInstance()
+SceneManager* const SceneManager::GetInstance()
 {
 	if (Instance == 0) {
 		Instance = new SceneManager();
 	}
 	return Instance;
 }
-
-//void SceneManager::OpenScene(Scene& SceneToOpen)
-//{
-//	loadedScenes.push(&SceneToOpen);
-//}
-//
-
 
 void SceneManager::OpenScene(Scene* SceneToOpen)
 {
@@ -43,16 +36,16 @@ void SceneManager::OpenPreviousScene()
 	}
 }
 
-void SceneManager::Draw(sf::RenderWindow& window) const
+Scene& SceneManager::GetActiveScene() const{
+	return (*loadedScenes.top());
+}
+
+void SceneManager::Draw( sf::RenderWindow& window) const
 {
-	if (loadedScenes.size() != 0) {
-		loadedScenes.top()->Draw(window);
-	}
+	GetActiveScene().Draw(window);
 }
 
 void SceneManager::Step()
 {
-	if (loadedScenes.size() != 0) {
-		loadedScenes.top()->Step();
-	}
+	GetActiveScene().Step();
 }
