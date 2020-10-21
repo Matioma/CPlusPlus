@@ -2,6 +2,7 @@
 
 Scene::Scene()
 {
+	InitializeScene();
 }
 Scene::~Scene()
 {

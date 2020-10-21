@@ -66,6 +66,9 @@
     <ClCompile Include="GamePlayScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterSelectScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="IRenewable.h">
       <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSelectScene.h">
+      <Filter>Header Files\SceneH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

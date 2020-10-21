@@ -2,23 +2,27 @@
 
 #include "TextBox.h"
 
-Button::Button(std::string path):Sprite(path)
+Button::Button(std::string path):Sprite(path),
+		textBox(*(new TextBox(0,0)))
 {
-	BuildElement();
+	AddChild(&textBox);
 }
+
 
 void Button::BuildElement() {
 
 }
 
 
-void Button::AddText(std::string message)
+void Button::SetText(std::string message)
 {
-	TextBox* textBox = new TextBox(5, 10, message);
-	AddChild(textBox);
+	textBox.SetMessage(message);
 }
 
-void Button::SetSize(sf::Vector2f size)
-{
-	SetSpriteSize(size.x, size.y);
-}
+
+
+
+//void Button::SetSize(sf::Vector2f size)
+//{
+//	SetSpriteSize(size.x, size.y);
+//}

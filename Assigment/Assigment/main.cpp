@@ -14,7 +14,7 @@ int main()
     InputManager inputManager(window);
 
 
-    SceneManager::GetInstance()->OpenScene(new MainMenuScene());
+    sceneManager.OpenScene(new MainMenuScene());
 
     while (window.isOpen())
     {

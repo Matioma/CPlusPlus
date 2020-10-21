@@ -56,3 +56,8 @@ void SceneManager::Step()
 {
 	GetActiveScene().Step();
 }
+
+
+void SceneManager::CloseApplication() {
+	this->window.close();
+}

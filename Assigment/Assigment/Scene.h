@@ -10,7 +10,12 @@ class Scene: public GameObject {
 	Scene();
 	~Scene();
 
-	virtual void InitializeScene()=0;
+
+
+
+
+
+	virtual void InitializeScene() {};
 
 
 	//void Step() override;

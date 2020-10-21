@@ -1,5 +1,9 @@
 #include "MainMenuScene.h"
 
+
+
+#include "CharacterSelectScene.h"
+
 #include "Resources.h"
 #include "TextBox.h"
 #include "Button.h"
@@ -10,7 +14,7 @@ MainMenuScene::~MainMenuScene()
 {
 }
 
-MainMenuScene::MainMenuScene() {
+MainMenuScene::MainMenuScene():Scene() {
     InitializeScene();
 }
 
@@ -25,29 +29,26 @@ void MainMenuScene::InitializeScene()
     text->setPosition(1280/2 -50, 30);
     AddChild(text);
 
-
     Sprite* image = new Sprite(0,0,"GasMask.jpg");
     image->setPosition(1280 / 2 - 220, 300);
     image->SetSpriteWidth(1280 / 3);
     AddChild(image);
 
-
     //Buttons
     Button* button = new Button("CharacterPlaceHolder1.png");
 
-    button->AddText("Play");
+    button->SetText("Play");
     button->setPosition(1280-300, 150);
     button->SetSpriteSize(150,50);
     button->onClick = []() {
-        //Scene
-        SceneManager::GetInstance()->OpenScene(new GamePlayScene());
-        printf_s("Button lambda method button Pressed \n"); };
+        SceneManager::GetInstance()->OpenScene(new CharacterSelectScene());
+        };
     AddChild(button);
 
 
     button = new Button("CharacterPlaceHolder1.png");
 
-    button->AddText("Reset");
+    button->SetText("Reset");
     button->setPosition(1280 - 300, 150);
     button->move(0, 120);
     button->SetSpriteSize(150, 50);
@@ -56,11 +57,11 @@ void MainMenuScene::InitializeScene()
   
     button = new Button("CharacterPlaceHolder1.png");
 
-    button->AddText("Exit");
+    button->SetText("Exit");
     button->setPosition(1280 - 300, 150);
     button->move(0, 240);
     button->SetSpriteSize(150, 50);
-    button->onClick = []() {printf_s("Button lambda method button Pressed \n"); };
+    button->onClick = []() {SceneManager::GetInstance()->CloseApplication(); };
     AddChild(button);
 
 

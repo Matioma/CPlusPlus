@@ -15,7 +15,7 @@ GamePlayScene::~GamePlayScene()
 
 void GamePlayScene::InitializeScene()
 {
-    printf_s("Gameplat scene oppened");
+    printf_s("Gameplay scene oppened");
 
     Sprite* background = new Sprite(0, 0, "Background.png");
     background->SetSpriteWidth(1280);
@@ -26,8 +26,7 @@ void GamePlayScene::InitializeScene()
 
     //Buttons
     Button* button = new Button("CharacterPlaceHolder1.png");
-
-    button->AddText("Back");
+    button->SetText("Back");
     button->setPosition(1280 - 300, 150);
     button->SetSpriteSize(150, 50);
     button->onClick = []() {

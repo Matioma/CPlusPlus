@@ -20,6 +20,7 @@ class SceneManager{
 
 		void Draw() const;
 		void Step();
+		void CloseApplication();
 private:
 	sf::RenderWindow& window;
 	
