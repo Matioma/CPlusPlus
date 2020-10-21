@@ -10,9 +10,7 @@ public:
 
 
 	void BuildElement();
-
 	void SetText(std::string);
-	//void SetSize(sf::Vector2f);
 private:
 	TextBox& textBox;
 

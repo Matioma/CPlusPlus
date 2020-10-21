@@ -22,6 +22,8 @@ void Button::SetText(std::string message)
 
 
 
+
+
 //void Button::SetSize(sf::Vector2f size)
 //{
 //	SetSpriteSize(size.x, size.y);
