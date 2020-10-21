@@ -27,6 +27,10 @@ int Character::GetStrength() const
 {
 	return strength;
 }
+int Character::GetAgility() const
+{
+	return agility;
+}
 int Character::GetWits() const
 {
 	return wits;
