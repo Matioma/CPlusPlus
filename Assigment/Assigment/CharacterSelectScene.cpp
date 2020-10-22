@@ -1,19 +1,25 @@
 #include "CharacterSelectScene.h"
-#include "TextBox.h"
-#include "Button.h"
-#include "SceneManager.h"
-#include "GamePlayScene.h"
+#include <iostream>
+
 
 CharacterSelectScene::CharacterSelectScene() {
+    //characterBuilder.CreateCharacter(2,character);
 	InitializeScene();
 }
 
 CharacterSelectScene::~CharacterSelectScene()
 {
+    //delete character;
 }
 
 void CharacterSelectScene::InitializeScene()
 {
+    character =  characterBuilder.CreateCharacter(2);
+ 
+
+
+    int t = 0;
+
 
     Sprite* background = new Sprite(0, 0, "Background.png");
     background->SetSpriteWidth(1280);
@@ -22,7 +28,6 @@ void CharacterSelectScene::InitializeScene()
     TextBox* text = new TextBox("Character");
     text->setPosition(536, 26);
     AddChild(text);
-
 
     //Buttons
     Button* CancelButton = new Button("CharacterPlaceHolder1.png");
@@ -47,7 +52,9 @@ void CharacterSelectScene::InitializeScene()
     RandomizeButton->SetText("Randomize");
     RandomizeButton->setPosition(897, 180);
     RandomizeButton->SetSpriteSize(290, 66);
-    RandomizeButton->onClick = []() {};
+    RandomizeButton->onClick = [this]() {
+        this->character = this->characterBuilder.CreateCharacter(2);
+        std::cout << character.GetName() << std::endl;
+    };
     AddChild(RandomizeButton);
-
 }

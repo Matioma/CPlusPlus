@@ -38,7 +38,6 @@ void SceneManager::OpenScene(Scene* SceneToOpen)
 void SceneManager::OpenPreviousScene()
 {
 	if (loadedScenes.size() > 1) {
-		delete loadedScenes.top();
 		loadedScenes.pop();
 	}
 }

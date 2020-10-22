@@ -4,6 +4,16 @@ Character::Character()
 {
 }
 
+Character::Character(const Character& character)
+{
+	this->SetSpriteFileName(character.GetSpriteFileName());
+	this->SetName(character.GetName());
+
+	this->SetStrength(character.GetStrength());
+	this->SetAgility(character.GetAgility());
+	this->SetWits(character.GetWits());
+}
+
 Character::~Character()
 {
 }
@@ -35,6 +45,18 @@ int Character::GetWits() const
 {
 	return wits;
 }
+void Character::AddStrength(int amount)
+{
+	SetStrength(strength + amount);
+}
+void Character::AddAgility(int amount)
+{
+	SetAgility(agility + amount);
+}
+void Character::AddWits(int amount)
+{
+	SetWits(agility + amount);
+}
 void Character::SetName(std::string pName)
 {
 	name = pName;
@@ -45,9 +67,9 @@ const std::string& Character::GetName() const
 }
 void Character::SetSpriteFileName(std::string pFileName)
 {
-	visualsFile = pFileName;
+	spriteFileName = pFileName;
 }
 const std::string& Character::GetSpriteFileName() const
 {
-	return visualsFile;
+	return spriteFileName;
 }
