@@ -45,6 +45,18 @@ int Character::GetWits() const
 {
 	return wits;
 }
+const int& Character::GetStrengthRef() const
+{
+	return strength;
+}
+const int& Character::GetAgilityRef() const
+{
+	return agility;
+}
+const int& Character::GetWitsRef() const
+{
+	return wits;
+}
 void Character::AddStrength(int amount)
 {
 	SetStrength(strength + amount);

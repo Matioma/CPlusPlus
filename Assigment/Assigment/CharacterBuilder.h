@@ -4,9 +4,12 @@
 
 class CharacterBuilder {
 	std::vector<std::string> PossibleNames;
+	std::vector<std::string> SpriteFileNames;
 
 
 	void LoadNames();
+
+	void LoadCharacterSprites();
 
 	public:
 		CharacterBuilder();

@@ -13,7 +13,6 @@ void CharacterBuilder::LoadNames()
     if (myFileRead.is_open()) {
         while (std::getline(myFileRead, line)) {
             PossibleNames.push_back(line);
-            //printf_s("%s \n", line.c_str());
         }
     }
     else {
@@ -22,9 +21,32 @@ void CharacterBuilder::LoadNames()
     myFileRead.close();
 }
 
+
+void CharacterBuilder::LoadCharacterSprites() {
+    std::string namesFile = "./Data/CharacterSpriteNames.txt";
+
+    std::ifstream myFileRead(namesFile);
+    std::string line;
+
+    if (myFileRead.is_open()) {
+        while (std::getline(myFileRead, line)) {
+            SpriteFileNames.push_back(line);
+        }
+    }
+    else {
+        printf_s("Could not open file %s \n", namesFile.c_str());
+    }
+    myFileRead.close();
+
+
+}
+
+
+
 CharacterBuilder::CharacterBuilder()
 {
     LoadNames();
+    LoadCharacterSprites();
 }
 
 CharacterBuilder::~CharacterBuilder()
@@ -43,8 +65,15 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
     int nameIndex = rand() % PossibleNames.size();
 
     std::string& newName = this->PossibleNames[nameIndex];
-
     character.SetName(newName);
+
+
+    int spriteIndex = rand() % SpriteFileNames.size();
+    std::string& spriteFileName = this->SpriteFileNames[spriteIndex];
+    character.SetSpriteFileName(spriteFileName);
+
+
+
 
     //Set initial skillPoints
     skillPointsToDistribute -= 2;
@@ -74,9 +103,6 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
         }
 
     }
-
-    std::cout<< character.strength<< ":" <<character.agility <<": " << character.wits <<std::endl;
-
 
     return character;
 }

@@ -14,14 +14,15 @@ class Character :GameObject {
 	//int agility=0;
 	//int wits=0;
 
+	int health = 0;
+	int sanity = 0;
+
+	int strength = 0;
+	int agility = 0;
+	int wits = 0;
+
+
 	public:
-		int health = 0;
-		int sanity = 0;
-
-		int strength = 0;
-		int agility = 0;
-		int wits = 0;
-
 
 		Character();
 		Character(const Character& character);
@@ -34,6 +35,11 @@ class Character :GameObject {
 		int GetStrength() const;
 		int GetAgility() const;
 		int GetWits() const;
+
+
+		const int& GetStrengthRef() const;
+		const int& GetAgilityRef() const;
+		const int& GetWitsRef() const;
 
 
 		void AddStrength(int amount=1);
