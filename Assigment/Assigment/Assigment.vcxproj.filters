@@ -90,6 +90,9 @@
     <ClCompile Include="IntLabel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringLabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -147,6 +150,9 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="IntLabel.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="StringLabel.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

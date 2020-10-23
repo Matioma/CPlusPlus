@@ -4,6 +4,7 @@
 #include "AttributeLabel.h"
 #include "TextLabel.h"
 #include "IntLabel.h"
+#include "StringLabel.h"
 
 CharacterSelectScene::CharacterSelectScene() {
    
@@ -30,7 +31,15 @@ void CharacterSelectScene::InitializeScene()
 
 
     IntLabel* label = new IntLabel(character.GetStrengthRef());
+    label->setPosition(500, 120);
+    
     AddChild(label);
+
+    StringLabel* strLabel = new StringLabel(character.GetNameRef());
+    AddChild(strLabel);
+
+
+
 
     /*AttributeLabel* labelStrength = new AttributeLabel(character.strength, 87, 76);
     labelStrength->setPosition(350, 372);
@@ -41,9 +50,9 @@ void CharacterSelectScene::InitializeScene()
     AddChild(labelStrength);*/
 
 
-    TextLabel* textLabel = new TextLabel("Test");
+    /*TextLabel* textLabel = new TextLabel("Test");
     textLabel->setPosition(120, 120);
-    AddChild(textLabel);
+    AddChild(textLabel);*/
 
 
 

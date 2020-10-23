@@ -41,6 +41,8 @@ class Character :GameObject {
 		const int& GetAgilityRef() const;
 		const int& GetWitsRef() const;
 
+		const std::string& GetNameRef() const;
+
 
 		void AddStrength(int amount=1);
 		void AddAgility(int amount=1);

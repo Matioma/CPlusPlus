@@ -154,6 +154,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="StringLabel.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="TextLabel.cpp" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IntLabel.h" />
     <ClInclude Include="IRenewable.h" />
+    <ClInclude Include="StringLabel.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MainMenuScene.h" />

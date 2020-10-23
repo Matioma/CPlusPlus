@@ -57,6 +57,10 @@ const int& Character::GetWitsRef() const
 {
 	return wits;
 }
+const std::string& Character::GetNameRef() const
+{
+	return name;
+}
 void Character::AddStrength(int amount)
 {
 	SetStrength(strength + amount);
