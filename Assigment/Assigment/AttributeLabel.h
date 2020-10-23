@@ -1,11 +1,16 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Sprite.h"
 class AttributeLabel: public GameObject {
 
-	sf::Font font;
 	sf::Text textObject;
 	std::string message;
+
+
+
+	Sprite* background;
+
 
 
 	const int& value;
@@ -14,6 +19,8 @@ class AttributeLabel: public GameObject {
 		AttributeLabel(const int& attributeValue, std::string fontFile = "Roboto-Black.ttf");
 		AttributeLabel(const int& attributeValue, bool separate);
 		~AttributeLabel();
+
+		void SetBackground(std::string path);
 
 
 		void Step() override;

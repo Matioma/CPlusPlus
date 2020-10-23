@@ -12,7 +12,6 @@ AttributeLabel::AttributeLabel(const int& attributeValue, std::string filePath )
 	}
 	textObject.setString("Random");
 	textObject.setFillColor(sf::Color::Black);
-
 }
 
 AttributeLabel::AttributeLabel(const int& attributeValue,bool separate):value(attributeValue)
@@ -22,6 +21,20 @@ AttributeLabel::AttributeLabel(const int& attributeValue,bool separate):value(at
 AttributeLabel::~AttributeLabel()
 {
 }
+
+
+
+
+void AttributeLabel::SetBackground(std::string path) {
+	if (background != nullptr) {
+		background->SetSprite(path);
+	}
+	else {
+		background = new Sprite(path);
+		AddChild(background);
+	}
+}
+
 
 void AttributeLabel::Step()
 {

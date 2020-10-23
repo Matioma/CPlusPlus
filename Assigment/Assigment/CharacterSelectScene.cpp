@@ -15,7 +15,6 @@ CharacterSelectScene::~CharacterSelectScene()
 void CharacterSelectScene::InitializeScene()
 {
     character =  characterBuilder.CreateCharacter(10);
- 
 
 
 
