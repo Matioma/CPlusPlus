@@ -78,7 +78,7 @@
     <ClCompile Include="GamePlayScene.cpp">
       <Filter>Source Files\SceneCPP</Filter>
     </ClCompile>
-    <ClCompile Include="AttributeElement.cpp">
+    <ClCompile Include="AttributeLabel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,7 +131,7 @@
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AttributeElement.h">
+    <ClInclude Include="AttributeLabel.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

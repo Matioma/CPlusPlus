@@ -11,8 +11,8 @@ class AttributeLabel: public GameObject {
 	const int& value;
 
 	public:
-		AttributeLabel(const int& attributeValue, int i, std::string fontFile = "Roboto-Black.ttf");
-		AttributeLabel(const int& attributeValue);
+		AttributeLabel(const int& attributeValue, std::string fontFile = "Roboto-Black.ttf");
+		AttributeLabel(const int& attributeValue, bool separate);
 		~AttributeLabel();
 
 

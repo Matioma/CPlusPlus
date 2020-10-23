@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AttributeElement.cpp" />
+    <ClCompile Include="AttributeLabel.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterBuilder.cpp" />
@@ -156,7 +156,7 @@
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AttributeElement.h" />
+    <ClInclude Include="AttributeLabel.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterBuilder.h" />

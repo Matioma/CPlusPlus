@@ -1,6 +1,7 @@
 #include "CharacterSelectScene.h"
 #include <iostream>
 
+#include "AttributeLabel.h"
 
 CharacterSelectScene::CharacterSelectScene() {
    
@@ -13,11 +14,9 @@ CharacterSelectScene::~CharacterSelectScene()
 
 void CharacterSelectScene::InitializeScene()
 {
-    character =  characterBuilder.CreateCharacter(2);
+    character =  characterBuilder.CreateCharacter(10);
  
 
-
-    int t = 0;
 
 
     Sprite* background = new Sprite(0, 0, "Background.png");
@@ -27,6 +26,12 @@ void CharacterSelectScene::InitializeScene()
     TextBox* text = new TextBox("Character");
     text->setPosition(536, 26);
     AddChild(text);
+
+
+    AttributeLabel* label = new AttributeLabel(character.strength);
+    label->setPosition(350, 372);
+    AddChild(label);
+
 
     //Buttons
     Button* CancelButton = new Button("CharacterPlaceHolder1.png");
@@ -52,7 +57,7 @@ void CharacterSelectScene::InitializeScene()
     RandomizeButton->setPosition(897, 180);
     RandomizeButton->SetSpriteSize(290, 66);
     RandomizeButton->onClick = [this]() {
-        this->character = this->characterBuilder.CreateCharacter(2);
+        this->character = this->characterBuilder.CreateCharacter(10);
         std::cout << character.GetName() << std::endl;
     };
     AddChild(RandomizeButton);

@@ -35,8 +35,6 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
         printf_s("Imposible to create caracter with only 1 skill point");
     }
 
-    
-
     Character character;
     int skillPointsToDistribute =skillPoints;
 
@@ -49,8 +47,31 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
 
     //Set initial skillPoints
     skillPointsToDistribute -= 2;
-    character.AddStrength(1);
-    character.AddWits(1);
+    character.AddStrength();
+    character.AddWits();
+
+
+    //Destributing the skill Points
+    while (skillPointsToDistribute > 0) {
+        int attributeToChange = rand() % 3;
+        skillPointsToDistribute--;
+        switch (attributeToChange)
+        {
+            case 0:
+                character.AddStrength();
+                break;
+            case 1:
+                character.AddAgility();
+                break;
+            case 2:
+                character.AddWits();
+                break;
+            default:
+                break;
+        }
+
+    }
+
 
     return character;
 }

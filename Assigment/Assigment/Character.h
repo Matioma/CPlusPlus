@@ -7,14 +7,22 @@ class Character :GameObject {
 	std::string name= "Name";
 	std::string spriteFileName ="CharacterPlaceHolder2.png";
 
-	int health=0;
-	int sanity=0;
+	//int health=0;
+	//int sanity=0;
 
-	int strength=0;
-	int agility=0;
-	int wits=0;
+	//int strength=0;
+	//int agility=0;
+	//int wits=0;
 
 	public:
+		int health = 0;
+		int sanity = 0;
+
+		int strength = 0;
+		int agility = 0;
+		int wits = 0;
+
+
 		Character();
 		Character(const Character& character);
 		~Character();
