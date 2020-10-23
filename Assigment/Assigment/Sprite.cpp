@@ -5,14 +5,11 @@
 
 Sprite::Sprite(std::string filePath)
 {
-	
 	Resources& res = Resources::GetInstance();
 	sf::Texture* texture = res.GetTexture(filePath);
-	sf::Sprite sprite;
 	if (texture != nullptr) {
-		sprite.setTexture(*texture);
+		spriteObject.setTexture(*texture);
 	}
-	spriteObject = sprite;
 }
 
 Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)
@@ -27,6 +24,15 @@ bool Sprite::IsMouseOver() const
 	sf::FloatRect  spriteBounds = spriteObject.getGlobalBounds();
 
 	return spriteBounds.contains(mousePos.x, mousePos.y);
+}
+
+void Sprite::SetSprite(std::string filePath) {
+	Resources& res = Resources::GetInstance();
+	sf::Texture* texture = res.GetTexture(filePath);
+
+	if (texture != nullptr) {
+		spriteObject.setTexture(*texture);
+	}
 }
 
 
