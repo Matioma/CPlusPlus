@@ -85,7 +85,6 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
     while (skillPointsToDistribute > 0) {
         int attributeToChange = rand() % 3;
 
-        std::cout << attributeToChange << std::endl;
         skillPointsToDistribute--;
         switch (attributeToChange)
         {

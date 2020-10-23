@@ -2,6 +2,8 @@
 #include <iostream>
 
 #include "AttributeLabel.h"
+#include "TextLabel.h"
+#include "IntLabel.h"
 
 CharacterSelectScene::CharacterSelectScene() {
    
@@ -27,6 +29,9 @@ void CharacterSelectScene::InitializeScene()
     AddChild(text);
 
 
+    IntLabel* label = new IntLabel(character.GetStrengthRef());
+    AddChild(label);
+
     /*AttributeLabel* labelStrength = new AttributeLabel(character.strength, 87, 76);
     labelStrength->setPosition(350, 372);
     labelStrength->moveLabelText(26, 22);
@@ -35,6 +40,10 @@ void CharacterSelectScene::InitializeScene()
     labelStrength->AddChild(new TextBox(-4, 70, "Strength"));
     AddChild(labelStrength);*/
 
+
+    TextLabel* textLabel = new TextLabel("Test");
+    textLabel->setPosition(120, 120);
+    AddChild(textLabel);
 
 
 
@@ -86,7 +95,6 @@ void CharacterSelectScene::InitializeScene()
     RandomizeButton->SetSpriteSize(290, 66);
     RandomizeButton->onClick = [this]() {
         this->character = this->characterBuilder.CreateCharacter(10);
-        std::cout << character.GetName() << std::endl;
     };
     AddChild(RandomizeButton);
 }

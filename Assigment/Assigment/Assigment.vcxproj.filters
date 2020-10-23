@@ -34,6 +34,9 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{51e3ba28-a838-4239-9e08-8fb10481f6e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{bd75a7c9-14a6-4287-bdb0-f161c6c99316}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -78,7 +81,13 @@
     <ClCompile Include="GamePlayScene.cpp">
       <Filter>Source Files\SceneCPP</Filter>
     </ClCompile>
+    <ClCompile Include="TextLabel.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
     <ClCompile Include="AttributeLabel.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="IntLabel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -132,6 +141,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AttributeLabel.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TextLabel.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IntLabel.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

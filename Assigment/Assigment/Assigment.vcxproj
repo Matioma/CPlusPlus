@@ -147,6 +147,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlayScene.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IntLabel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Resources.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="TextBox.cpp" />
+    <ClCompile Include="TextLabel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttributeLabel.h" />
@@ -164,6 +166,7 @@
     <ClInclude Include="GamePlayScene.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InteractableObject.h" />
+    <ClInclude Include="IntLabel.h" />
     <ClInclude Include="IRenewable.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="GameObject.h" />
@@ -172,6 +175,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="TextLabel.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
