@@ -11,6 +11,10 @@ class Resources {
 		bool LoadTexture(const std::string path);
 		sf::Texture* GetTexture(const std::string path);
 
+
+		bool LoadFont(const std::string path);
+		sf::Font* GetFont(const std::string path);
+
 		~Resources();
 	private:
 		std::map<std::string, sf::Texture> LoadedTextures;

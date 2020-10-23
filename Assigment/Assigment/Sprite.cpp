@@ -5,15 +5,14 @@
 
 Sprite::Sprite(std::string filePath)
 {
-	std::string path = "../Resources/Textures/" + filePath;
 	
 	Resources* res = Resources::GetInstance();
-	sf::Texture* texture = res->GetTexture(path);
-
+	sf::Texture* texture = res->GetTexture(filePath);
 	sf::Sprite sprite;
-	sprite.setTexture(*texture);
+	if (texture != nullptr) {
+		sprite.setTexture(*texture);
+	}
 	spriteObject = sprite;
-
 }
 
 Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)

@@ -1,18 +1,15 @@
 #include "TextBox.h"
+#include "Resources.h"
 
 TextBox::TextBox( std::string message, std::string filePath) {
-	std::string path = "../Resources/Fonts/" + filePath;
-
-
-	if (!this->font.loadFromFile(path))
-	{
-		printf_s("Unable to locate font file %s",filePath.c_str());
+	Resources& resources = *Resources::GetInstance();
+	sf::Font* font = resources.GetFont(filePath);
+	if (font != nullptr) {
+		textObject.setFont(*font);
 	}
-	textObject.setFont(font);
+
 	textObject.setString(message);
-	//textObject.setCharacterSize(24);
 	textObject.setFillColor(sf::Color::Black);
-	//textObject.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 TextBox::TextBox(float x, float y, std::string message, std::string filePath ): TextBox(message, filePath) {
