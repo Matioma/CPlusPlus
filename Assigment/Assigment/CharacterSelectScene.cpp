@@ -3,13 +3,12 @@
 
 
 CharacterSelectScene::CharacterSelectScene() {
-    //characterBuilder.CreateCharacter(2,character);
+   
 	InitializeScene();
 }
 
 CharacterSelectScene::~CharacterSelectScene()
 {
-    //delete character;
 }
 
 void CharacterSelectScene::InitializeScene()
@@ -43,8 +42,8 @@ void CharacterSelectScene::InitializeScene()
     PlayButton->SetText("Play");
     PlayButton->setPosition(897, 599);
     PlayButton->SetSpriteSize(290, 66);
-    PlayButton->onClick = []() {
-        SceneManager::GetInstance()->OpenScene(new GamePlayScene()); 
+    PlayButton->onClick = [this]() {
+        SceneManager::GetInstance()->OpenScene(new GamePlayScene(this->character));
     };
     AddChild(PlayButton);
 

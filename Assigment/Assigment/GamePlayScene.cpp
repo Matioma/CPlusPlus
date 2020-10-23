@@ -8,6 +8,13 @@ GamePlayScene::GamePlayScene()
     InitializeScene();
 }
 
+GamePlayScene::GamePlayScene(const Character& player)
+{
+    playerCharacter = player;
+    printf_s("%s \n", playerCharacter.GetName().c_str());
+    InitializeScene();
+}
+
 GamePlayScene::~GamePlayScene()
 {
 	

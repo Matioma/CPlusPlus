@@ -14,12 +14,9 @@
 class CharacterSelectScene: public Scene{
 		void InitializeScene() override;
 
-		
-
-	public:
 		Character character;
 		CharacterBuilder characterBuilder;
-
+	public:
 		CharacterSelectScene();
 		~CharacterSelectScene();
 };
