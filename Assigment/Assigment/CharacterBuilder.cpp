@@ -70,7 +70,7 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
 
     int spriteIndex = rand() % SpriteFileNames.size();
     std::string& spriteFileName = this->SpriteFileNames[spriteIndex];
-    character.SetSpriteFileName(spriteFileName);
+    character.SetSpriteFileName("/Characters/" +spriteFileName);
 
 
 

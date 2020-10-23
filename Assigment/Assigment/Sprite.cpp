@@ -3,13 +3,19 @@
 #include "Resources.h"
 #include "InputManager.h"
 
+Sprite::Sprite()
+{
+	SetSprite("/Characters/con1.png");
+}
+
 Sprite::Sprite(std::string filePath)
 {
-	Resources& res = Resources::GetInstance();
+	SetSprite(filePath);
+	/*Resources& res = Resources::GetInstance();
 	sf::Texture* texture = res.GetTexture(filePath);
 	if (texture != nullptr) {
 		spriteObject.setTexture(*texture);
-	}
+	}*/
 }
 
 Sprite::Sprite(float x, float y, std::string filePath) :Sprite(filePath)
@@ -29,7 +35,16 @@ bool Sprite::IsMouseOver() const
 void Sprite::SetSprite(std::string filePath) {
 	Resources& res = Resources::GetInstance();
 	sf::Texture* texture = res.GetTexture(filePath);
+	
+	if (texture != nullptr) {
+		spriteObject.setTexture(*texture,true);
+	}
+}
 
+
+void Sprite::SpriteSetTexture(std::string fileName) {
+	Resources& res = Resources::GetInstance();
+	sf::Texture* texture = res.GetTexture(fileName);
 	if (texture != nullptr) {
 		spriteObject.setTexture(*texture);
 	}
@@ -42,28 +57,33 @@ void Sprite::SetSprite(std::string filePath) {
 /// <param name="newWidth"></param>
 void Sprite::SetSpriteWidth( float newWidth)
 {
-	sf::FloatRect rect = spriteObject.getLocalBounds();
+	sf::FloatRect rect = spriteObject.getGlobalBounds();
 	float scaleX = newWidth / rect.width;
 	spriteObject.scale(scaleX, scaleX);
+
+	
 }
 
 
 void Sprite::SetSpriteSize(float width, float heigth)
 {
-	sf::FloatRect rect = spriteObject.getLocalBounds();
+	sf::FloatRect rect = spriteObject.getGlobalBounds();
 	float scaleX = width / rect.width;
 	float scaleY = heigth / rect.height;
 	spriteObject.setScale(scaleX, scaleY);
+	printf_s("%f %f %f", scaleX, scaleY, rect.width);
 }
 
 void Sprite::Step()
 {
+	
 	spriteObject.setPosition(getPosition());
 	GameObject::Step();
 }
 
 void Sprite::Draw(sf::RenderWindow& window) const
 {
+	
 	window.draw(spriteObject);
 	GameObject::Draw(window);
 	
