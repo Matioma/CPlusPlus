@@ -2,7 +2,7 @@
 #include "Resources.h"
 
 TextBox::TextBox( std::string message, std::string filePath) {
-	Resources& resources = *Resources::GetInstance();
+	Resources& resources = Resources::GetInstance();
 	sf::Font* font = resources.GetFont(filePath);
 	if (font != nullptr) {
 		textObject.setFont(*font);

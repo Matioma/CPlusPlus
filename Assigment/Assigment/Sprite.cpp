@@ -6,8 +6,8 @@
 Sprite::Sprite(std::string filePath)
 {
 	
-	Resources* res = Resources::GetInstance();
-	sf::Texture* texture = res->GetTexture(filePath);
+	Resources& res = Resources::GetInstance();
+	sf::Texture* texture = res.GetTexture(filePath);
 	sf::Sprite sprite;
 	if (texture != nullptr) {
 		sprite.setTexture(*texture);

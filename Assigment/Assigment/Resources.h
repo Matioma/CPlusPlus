@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 class Resources {
 	public:
-		static Resources* GetInstance();
+		static Resources& GetInstance();
 
 
 

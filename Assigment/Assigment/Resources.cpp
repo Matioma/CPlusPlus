@@ -98,12 +98,12 @@ sf::Font* Resources::GetFont(const std::string path)
 
 
 
-Resources* Resources::GetInstance()
+Resources& Resources::GetInstance()
 {
     if (Instance == 0) {
         Instance = new Resources;
     }
-    return Instance;
+    return *Instance;
 }
 
 
