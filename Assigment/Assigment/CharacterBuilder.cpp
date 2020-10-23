@@ -1,6 +1,7 @@
 #include "CharacterBuilder.h"
 
 #include <fstream>
+#include <iostream>
 
 void CharacterBuilder::LoadNames()
 {
@@ -54,6 +55,8 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
     //Destributing the skill Points
     while (skillPointsToDistribute > 0) {
         int attributeToChange = rand() % 3;
+
+        std::cout << attributeToChange << std::endl;
         skillPointsToDistribute--;
         switch (attributeToChange)
         {
@@ -71,6 +74,8 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
         }
 
     }
+
+    std::cout<< character.strength<< ":" <<character.agility <<": " << character.wits <<std::endl;
 
 
     return character;

@@ -2,27 +2,28 @@
 
 #include "Resources.h"
 
-AttributeLabel::AttributeLabel(const int& attributeValue, std::string filePath ):AttributeLabel(attributeValue,false)
+AttributeLabel::AttributeLabel(const int& attributeValue, int width, int height, std::string filePath ):AttributeLabel(attributeValue)
 {
 	Resources& instance = Resources::GetInstance();
 	sf::Font* font = instance.GetFont(filePath);
 
 	if (font != nullptr) {
-		textObject.setFont(*font);
+		labelText.setFont(*font);
 	}
-	textObject.setString("Random");
-	textObject.setFillColor(sf::Color::Black);
+	labelText.setString("Random");
+	labelText.setFillColor(sf::Color::Black);
+
+	size.x= width;
+	size.y = height;
 }
 
-AttributeLabel::AttributeLabel(const int& attributeValue,bool separate):value(attributeValue)
+AttributeLabel::AttributeLabel(const int& attributeValue):value(attributeValue)
 {
 }
 
 AttributeLabel::~AttributeLabel()
 {
 }
-
-
 
 
 void AttributeLabel::SetBackground(std::string path) {
@@ -33,18 +34,28 @@ void AttributeLabel::SetBackground(std::string path) {
 		background = new Sprite(path);
 		AddChild(background);
 	}
+	background->SetSpriteSize(size.x, size.y);
+}
+
+void AttributeLabel::moveLabelText(float x, float y) {
+	labelTextDisplacement.x = x;
+	labelTextDisplacement.y = y;
 }
 
 
 void AttributeLabel::Step()
 {
-	textObject.setPosition(getPosition());
+	labelText.setPosition(getPosition());
+	labelText.move(labelTextDisplacement);
+
 	std::string message= std::to_string(value);
-	textObject.setString(message);
+	labelText.setString(message);
+	
 	GameObject::Step();
 }
 
 void AttributeLabel::Draw(sf::RenderWindow& window) const
 {
-	window.draw(textObject);
+	GameObject::Draw(window);
+	window.draw(labelText);
 }

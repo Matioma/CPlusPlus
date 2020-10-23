@@ -10,7 +10,7 @@ class GameObject: public sf::Transformable, public InteractableObject , IRenuabl
 
 		GameObject();
 
-		~GameObject();
+		virtual ~GameObject();
 		
 		
 		GameObject& AddChild(GameObject* gameObject);

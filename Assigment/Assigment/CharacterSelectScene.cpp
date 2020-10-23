@@ -27,10 +27,39 @@ void CharacterSelectScene::InitializeScene()
     AddChild(text);
 
 
-    AttributeLabel* label = new AttributeLabel(character.strength);
-    label->setPosition(350, 372);
-    AddChild(label);
+    /*AttributeLabel* labelStrength = new AttributeLabel(character.strength, 87, 76);
+    labelStrength->setPosition(350, 372);
+    labelStrength->moveLabelText(26, 22);
+    labelStrength->SetBackground("CharacterPlaceHolder1.png");
 
+    labelStrength->AddChild(new TextBox(-4, 70, "Strength"));
+    AddChild(labelStrength);*/
+
+
+
+
+    AttributeLabel* labelStrength = new AttributeLabel(character.strength, 87, 76);
+    labelStrength->setPosition(350, 372);
+    labelStrength->moveLabelText(26, 22);
+    labelStrength->SetBackground("CharacterPlaceHolder1.png");
+
+    labelStrength->AddChild(new TextBox(-4, 70, "Strength"));
+    AddChild(labelStrength);
+
+    AttributeLabel* labelAgility = new AttributeLabel(character.agility, 87, 76);
+    labelAgility->setPosition(603, 372);
+    labelAgility->moveLabelText(26, 22);
+    labelAgility->SetBackground("CharacterPlaceHolder1.png");
+
+    labelAgility->AddChild(new TextBox(-4, 70, "Agility"));
+    AddChild(labelAgility);
+
+    AttributeLabel* labelWits = new AttributeLabel(character.wits, 87, 76);
+    labelWits->setPosition(844, 372);
+    labelWits->moveLabelText(26, 22);
+    labelWits->SetBackground("CharacterPlaceHolder1.png");
+    labelWits->AddChild(new TextBox(-4, 70, "Wits"));
+    AddChild(labelWits);
 
     //Buttons
     Button* CancelButton = new Button("CharacterPlaceHolder1.png");

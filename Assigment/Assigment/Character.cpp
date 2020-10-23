@@ -26,7 +26,7 @@ void Character::SetStrength(int pStrength)
 
 void Character::SetAgility(int pAgility)
 {
-
+	agility = pAgility;
 }
 void Character::SetWits(int pWits)
 {
