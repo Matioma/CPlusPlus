@@ -1,6 +1,9 @@
 #include "GamePlayScene.h"
 #include"SceneManager.h"
 
+#include "TextLabel.h"
+
+#include "Controller.h"
 
 
 GamePlayScene::GamePlayScene()
@@ -11,7 +14,6 @@ GamePlayScene::GamePlayScene()
 GamePlayScene::GamePlayScene(const Character& player)
 {
     playerCharacter = player;
-    printf_s("%s \n", playerCharacter.GetName().c_str());
     InitializeScene();
 }
 
@@ -28,17 +30,88 @@ void GamePlayScene::InitializeScene()
     background->SetSpriteWidth(1280);
     AddChild(background);
 
+
+
+
+
+    //Attack Button
+    {
+        Button* button = new Button("CharacterPlaceHolder1.png");
+        button->SetText("");
+        
+        button->setPosition(206, 512);
+        button->SetSpriteSize(192, 30);
+        button->onClick = []() {
+        };
+
+
+        TextLabel* textLabel = new TextLabel("Attack");
+        button->AddChild(textLabel);
+
+        AddChild(button);
+    }
     
+    //Prepare Button
+    {
+        Button* button = new Button("CharacterPlaceHolder1.png");
+        button->SetText("");
+
+        button->setPosition(425, 512);
+        button->SetSpriteSize(192, 30);
+        button->onClick = []() {
+        };
+
+
+        TextLabel* textLabel = new TextLabel("Prepare");
+        button->AddChild(textLabel);
+
+        AddChild(button);
+    }
+
+    //Recover Button
+    {
+        Button* button = new Button("CharacterPlaceHolder1.png");
+        button->SetText("");
+
+        button->setPosition(653, 512);
+        button->SetSpriteSize(192, 30);
+        button->onClick = []() {
+        };
+
+
+        TextLabel* textLabel = new TextLabel("Recover");
+        button->AddChild(textLabel);
+
+        AddChild(button);
+    }
+
+
+    //Cast Magic Button
+    {
+        Button* button = new Button("CharacterPlaceHolder1.png");
+        button->SetText("");
+
+        button->setPosition(881, 512);
+        button->SetSpriteSize(192, 30);
+        button->onClick = []() {
+        };
+
+
+        TextLabel* textLabel = new TextLabel("Cast Magic");
+        button->AddChild(textLabel);
+        AddChild(button);
+    }
 
 
     //Buttons
     Button* button = new Button("CharacterPlaceHolder1.png");
-    button->SetText("Back");
-    button->setPosition(1280 - 300, 150);
+    button->SetText("Quit");
+    button->setPosition(897, 599);
     button->SetSpriteSize(150, 50);
     button->onClick = []() {
         SceneManager::GetInstance()->OpenPreviousScene();
-        printf_s("Go to previous Scene \n"); };
+        SceneManager::GetInstance()->OpenPreviousScene();
+        printf_s("Go to main Menu Scene \n"); };
     AddChild(button);
 
 }

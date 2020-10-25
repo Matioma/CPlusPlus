@@ -71,7 +71,6 @@ void Sprite::SetSpriteSize(float width, float heigth)
 	float scaleX = width / rect.width;
 	float scaleY = heigth / rect.height;
 	spriteObject.setScale(scaleX, scaleY);
-	printf_s("%f %f %f", scaleX, scaleY, rect.width);
 }
 
 void Sprite::Step()

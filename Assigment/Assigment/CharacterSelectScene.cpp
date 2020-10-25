@@ -25,17 +25,24 @@ void CharacterSelectScene::InitializeScene()
     background->SetSpriteWidth(1280);
     AddChild(background);
 
-    TextBox* text = new TextBox("Character Selection");
-    text->setPosition(542, 26);
-    AddChild(text);
+  
 
 
+    Sprite* avatarBackground = new Sprite(0, 0, "CharacterPlaceHolder1.png");
+    avatarBackground->setPosition(322, 180);
+    avatarBackground->SetSpriteSize(128, 128);
+    AddChild(background);
 
 
     SpriteBinded* avatar = new SpriteBinded(character.GetSpriteFileName());
     avatar->setPosition(322, 180);
     avatar->SetSpriteSize(128, 128);
     AddChild(avatar);
+
+
+    TextLabel* text = new TextLabel("Character Selection");
+    text->setPosition(542, 26);
+    AddChild(text);
 
     TextLabel* nameLabel = new  TextLabel("Name: ");
     nameLabel->setPosition(483, 208);
@@ -91,48 +98,6 @@ void CharacterSelectScene::InitializeScene()
 
         AddChild(witsAttribute);
     }
-
-
-
-
-
-    /*AttributeLabel* labelStrength = new AttributeLabel(character.strength, 87, 76);
-    labelStrength->setPosition(350, 372);
-    labelStrength->moveLabelText(26, 22);
-    labelStrength->SetBackground("CharacterPlaceHolder1.png");
-
-    labelStrength->AddChild(new TextBox(-4, 70, "Strength"));
-    AddChild(labelStrength);*/
-
-
-    /*TextLabel* textLabel = new TextLabel("Test");
-    textLabel->setPosition(120, 120);
-    AddChild(textLabel);*/
-
-
-
-    //AttributeLabel* labelStrength = new AttributeLabel(character.GetStrengthRef(), 87, 76);
-    //labelStrength->setPosition(350, 372);
-    //labelStrength->moveLabelText(26, 22);
-    //labelStrength->SetBackground("CharacterPlaceHolder1.png");
-
-    //labelStrength->AddChild(new TextBox(-4, 70, "Strength"));
-    //AddChild(labelStrength);
-
-   /* AttributeLabel* labelAgility = new AttributeLabel(character.GetAgilityRef(), 87, 76);
-    labelAgility->setPosition(603, 372);
-    labelAgility->moveLabelText(26, 22);
-    labelAgility->SetBackground("CharacterPlaceHolder1.png");
-
-    labelAgility->AddChild(new TextBox(-4, 70, "Agility"));
-    AddChild(labelAgility);
-
-    AttributeLabel* labelWits = new AttributeLabel(character.GetWitsRef(), 87, 76);
-    labelWits->setPosition(844, 372);
-    labelWits->moveLabelText(26, 22);
-    labelWits->SetBackground("CharacterPlaceHolder1.png");
-    labelWits->AddChild(new TextBox(-4, 70, "Wits"));
-    AddChild(labelWits);*/
 
     //Buttons
     Button* CancelButton = new Button("CharacterPlaceHolder1.png");
