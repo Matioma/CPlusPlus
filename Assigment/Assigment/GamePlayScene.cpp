@@ -3,7 +3,7 @@
 
 #include "TextLabel.h"
 
-#include "Controller.h"
+#include "GameController.h"
 
 
 GamePlayScene::GamePlayScene()
@@ -11,9 +11,9 @@ GamePlayScene::GamePlayScene()
     InitializeScene();
 }
 
-GamePlayScene::GamePlayScene(const Character& player)
+GamePlayScene::GamePlayScene(const Character& player):gameController(player)
 {
-    playerCharacter = player;
+    //playerCharacter = player;
     InitializeScene();
 }
 
@@ -24,14 +24,9 @@ GamePlayScene::~GamePlayScene()
 
 void GamePlayScene::InitializeScene()
 {
-    printf_s("Gameplay scene oppened");
-
     Sprite* background = new Sprite(0, 0, "Background.png");
     background->SetSpriteWidth(1280);
     AddChild(background);
-
-
-
 
 
     //Attack Button
@@ -41,8 +36,12 @@ void GamePlayScene::InitializeScene()
         
         button->setPosition(206, 512);
         button->SetSpriteSize(192, 30);
-        button->onClick = []() {
-        };
+        button->SetClickFunction([this]() {
+            this->gameController.CharacterAttacked();
+
+        });
+        /*button->onClick = []() {
+        };*/
 
 
         TextLabel* textLabel = new TextLabel("Attack");
@@ -58,8 +57,9 @@ void GamePlayScene::InitializeScene()
 
         button->setPosition(425, 512);
         button->SetSpriteSize(192, 30);
-        button->onClick = []() {
-        };
+        button->SetClickFunction([this]() {
+            this->gameController.CharacterPrepared();
+        });
 
 
         TextLabel* textLabel = new TextLabel("Prepare");
@@ -75,8 +75,10 @@ void GamePlayScene::InitializeScene()
 
         button->setPosition(653, 512);
         button->SetSpriteSize(192, 30);
-        button->onClick = []() {
-        };
+        button->SetClickFunction([this]() {
+            this->gameController.CharacterRecovered();
+
+            });
 
 
         TextLabel* textLabel = new TextLabel("Recover");
@@ -93,8 +95,10 @@ void GamePlayScene::InitializeScene()
 
         button->setPosition(881, 512);
         button->SetSpriteSize(192, 30);
-        button->onClick = []() {
-        };
+        button->SetClickFunction([this]() {
+            this->gameController.CharacterCastMagic();
+
+        });
 
 
         TextLabel* textLabel = new TextLabel("Cast Magic");

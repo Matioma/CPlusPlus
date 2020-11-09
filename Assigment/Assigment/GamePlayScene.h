@@ -7,16 +7,11 @@
 #include "Character.h"
 #include "CharacterBuilder.h"
 
-#include "Controller.h"
+#include "GameController.h"
 
 class GamePlayScene :public Scene {
-	
-	CharacterBuilder characterBuilder;
-	Character playerCharacter;
-	Character enemyCharacter;
+	GameController gameController;
 
-
-	//GameController gameController;
 public:
 
 	GamePlayScene();

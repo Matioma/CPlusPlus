@@ -19,6 +19,7 @@ CharacterSelectScene::~CharacterSelectScene()
 void CharacterSelectScene::InitializeScene()
 {
     character =  characterBuilder.CreateCharacter(5);
+    
 
 
     Sprite* background = new Sprite(0, 0, "Background.png");

@@ -11,4 +11,6 @@ class InteractableObject {
 		};
 
 		std::function<void()> onClick =0;
+
+		void SetClickFunction(std::function<void()> lambda) { onClick = lambda; };
 };

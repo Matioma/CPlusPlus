@@ -1,7 +1,7 @@
-#include "Controller.h"
+#include "GameController.h"
 
 
-GameController::GameController(Character& pPlayer, Character& pEnemy):player(player),enemy(pEnemy)
+GameController::GameController(Character& pPlayer):player(player)
 {
 }
 

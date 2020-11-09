@@ -8,16 +8,13 @@ class Character :public GameObject,public CharacterActions{
 	std::string name= "Name";
 	std::string spriteFileName ="CharacterPlaceHolder2.png";
 
-
 	int health = 0;
 	int sanity = 0;
 	int strength = 0;
 	int agility = 0;
 	int wits = 0;
 
-
 	public:
-
 		Character();
 		Character(const Character& character);
 		~Character();
@@ -48,8 +45,9 @@ class Character :public GameObject,public CharacterActions{
 		const std::string& GetSpriteFileName() const;
 
 
-		virtual void Attack() {};
+		virtual void Attack(Character& character) { printf_s("Attacked"); };
 		virtual void Prepare() {};
 		virtual void Recover() {};
-		virtual void CastMagic() {};
+		virtual void CastMagic(Character& character) { printf_s("CastMagic"); };
+		//virtual void MakeRandomMove(Character& target) {};
 };
