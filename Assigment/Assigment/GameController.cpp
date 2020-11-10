@@ -175,7 +175,7 @@ void GameController::OnPlayerDeath() {
 	LogMessage("You have died");
 	LogMessage("Your score is: " + std::to_string(HighScore));
 
-	DataProccesor::GetInstance().SaveData("test");
+	DataProccesor::GetInstance().SaveHighScore(HighScore);
 	//SaveData();
 }
 

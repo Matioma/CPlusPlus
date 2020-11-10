@@ -81,7 +81,7 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
     character.AddStrength();
     character.AddWits();
 
-    std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
+    //std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
 
 
     //Destributing the skill Points
@@ -104,7 +104,7 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
                 std::cout << "unkown attribute" << std::endl;
                 break;
         }
-        std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
+        //std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
     }
 
     //std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
