@@ -18,6 +18,11 @@ TextLabel::~TextLabel()
 {
 }
 
+void TextLabel::SetLabel(std::string message)
+{
+	labelText.setString(message);
+}
+
 void TextLabel::Step()
 {
 	labelText.setPosition(getPosition());

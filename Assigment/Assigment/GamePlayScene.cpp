@@ -10,7 +10,10 @@
 #include "IntLabel.h"
 
 #include "ProgressBar.h"
+#include "CharacterUI.h"
 #include <iostream>
+#include "PlayerUI.h"
+#include "EnemyUI.h"
 
 GamePlayScene::GamePlayScene()
 {
@@ -44,144 +47,15 @@ void GamePlayScene::InitializeScene()
     AddChild(background);
 
 
+    PlayerUI* characterUI = new PlayerUI();
+    AddChild(characterUI);
+    gameController.bindPlayerUI(characterUI);
 
-    //Character1
-    {
-        Sprite* bgImage = new Sprite(47, 31, "RedBG.jpg");
-        bgImage->SetSpriteSize(173, 173);
-        AddChild(bgImage);
-       
-        SpriteBinded* avatar = new SpriteBinded(gameController.player->GetSpriteFileName());
-        avatar->setPosition(0, 0);
-        avatar->SetSpriteSize(173, 173);
-        bgImage->AddChild(avatar);
-
-        TextLabel* characterName = new TextLabel(gameController.player->GetName());
-        characterName->setPosition(236, 31);
-        AddChild(characterName);
+    EnemyUI* enemyUI = new EnemyUI();
+    AddChild(enemyUI);
+    gameController.bindEnemyUI(enemyUI);
 
 
-        {
-            ProgressBar* playerHealthProgressBar = new ProgressBar("Background.png", "RedBG.jpg", 1.0f);
-            playerHealthProgressBar->setPosition(236, 147);
-            playerHealthProgressBar->SetDimensions(204, 23);
-            playerHealthProgressBar->SetProgress(0.80f);
-            AddChild(playerHealthProgressBar);
-       
-
-            //Mana progress Bar
-            ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "BlueBG.jpg", 1.0f);
-            playerManaProgressBar->setPosition(236, 177);
-            playerManaProgressBar->SetDimensions(204, 23);
-            playerManaProgressBar->SetProgress(1.0f);
-            AddChild(playerManaProgressBar);
-
-            gameController.bindPlayerProgressBars(playerHealthProgressBar, playerManaProgressBar);
-        }
-
-        //Strength Stat
-        {
-            Sprite* statsBlock = new Sprite(236, 75, "Background.png");
-            statsBlock->SetSpriteSize(47, 47);
-            AddChild(statsBlock);
-
-            IntLabel* strLabel = new IntLabel(gameController.player->GetStrengthRef());
-            strLabel->setPosition(14, 8);
-            statsBlock->AddChild(strLabel);
-        }
-        //Agility Stat
-        {
-            Sprite* statsBlock = new Sprite(314, 75, "Background.png");
-            statsBlock->SetSpriteSize(47, 47);
-            AddChild(statsBlock);
-
-            IntLabel* strLabel = new IntLabel(gameController.player->GetAgilityRef());
-            strLabel->setPosition(14, 8);
-            statsBlock->AddChild(strLabel);
-        }
-        //Wits Stat
-        {
-            Sprite* statsBlock = new Sprite(393, 75, "Background.png");
-            statsBlock->SetSpriteSize(47, 47);
-            AddChild(statsBlock);
-
-            IntLabel* strLabel = new IntLabel(gameController.player->GetWitsRef());
-            strLabel->setPosition(14, 8);
-            statsBlock->AddChild(strLabel);
-        }
-       
-
-
-        //StringLabel* stringLabel = new StringLabel(gameController.player->GetNameRef());
-
-
-    }
-
-    //Character2
-    {
-        Sprite* bgImage = new Sprite(1070, 31, "RedBG.jpg");
-        bgImage->SetSpriteSize(173, 173);
-        AddChild(bgImage);
-
-        SpriteBinded* avatar = new SpriteBinded(gameController.enemy->GetSpriteFileName());
-        avatar->setPosition(0, 0);
-        avatar->SetSpriteSize(173, 173);
-        bgImage->AddChild(avatar);
-
-        TextLabel* characterName = new TextLabel(gameController.enemy->GetName());
-        characterName->setPosition(966, 31);
-        AddChild(characterName);
-
-        //Health Progress Bar
-        {
-            ProgressBar* playerHealthProgressBar = new ProgressBar("Background.png", "RedBG.jpg", 1.0f);
-            playerHealthProgressBar->setPosition(829, 147);
-            playerHealthProgressBar->SetDimensions(204, 23);
-            playerHealthProgressBar->SetProgress(0.80f);
-            AddChild(playerHealthProgressBar);
-        
-            //Mana Progress Bar
-            ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "BlueBG.jpg", 1.0f);
-            playerManaProgressBar->setPosition(829, 177);
-            playerManaProgressBar->SetDimensions(204, 23);
-            playerManaProgressBar->SetProgress(1.0f);
-            AddChild(playerManaProgressBar);
-
-
-            gameController.bindEnemyProgressBars(playerHealthProgressBar, playerManaProgressBar);
-        }
-
-        //Strength Stat
-        {
-            Sprite* statsBlock = new Sprite(829, 75, "Background.png");
-            statsBlock->SetSpriteSize(47, 47);
-            AddChild(statsBlock);
-
-            IntLabel* strLabel = new IntLabel(gameController.enemy->GetStrengthRef());
-            strLabel->setPosition(14, 8);
-            statsBlock->AddChild(strLabel);
-        }
-        //Agility Stat
-        {
-            Sprite* statsBlock = new Sprite(907, 75, "Background.png");
-            statsBlock->SetSpriteSize(47, 47);
-            AddChild(statsBlock);
-
-            IntLabel* strLabel = new IntLabel(gameController.enemy->GetAgilityRef());
-            strLabel->setPosition(14, 8);
-            statsBlock->AddChild(strLabel);
-        }
-        //Wits Stat
-        {
-            Sprite* statsBlock = new Sprite(986, 75, "Background.png");
-            statsBlock->SetSpriteSize(47, 47);
-            AddChild(statsBlock);
-
-            IntLabel* strLabel = new IntLabel(gameController.enemy->GetWitsRef());
-            strLabel->setPosition(14, 8);
-            statsBlock->AddChild(strLabel);
-        }
-    }
 
     //Combat Log
     {

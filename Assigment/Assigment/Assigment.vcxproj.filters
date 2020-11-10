@@ -37,6 +37,12 @@
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{bd75a7c9-14a6-4287-bdb0-f161c6c99316}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UI\CharacterUI">
+      <UniqueIdentifier>{1132b938-c542-4bf2-88bd-7dba22df8093}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Structs">
+      <UniqueIdentifier>{afa74f4b-db83-40ac-816e-ad99cbda34d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -103,6 +109,15 @@
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -181,6 +196,18 @@
     </ClInclude>
     <ClInclude Include="ProgressBar.h">
       <Filter>Header Files\UIElements</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterUI.h">
+      <Filter>Header Files\UI\CharacterUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterStats.h">
+      <Filter>Header Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerUI.h">
+      <Filter>Header Files\UI\CharacterUI</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyUI.h">
+      <Filter>Header Files\UI\CharacterUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

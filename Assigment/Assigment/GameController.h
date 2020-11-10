@@ -6,6 +6,10 @@
 #include "ProgressBar.h"
 
 #include "GameObject.h"
+#include "CharacterUI.h"
+
+class CharacterUI;
+
 
 class GameController: public GameObject {
 	CharacterBuilder characterBuilder;
@@ -14,17 +18,10 @@ class GameController: public GameObject {
 	std::string log;
 
 	CombatLogUI* combatLogTextBox;
+	CharacterUI* playerUI;
+	CharacterUI* enemyUI;
 
-
-
-	ProgressBar*  playerHealth;
-	ProgressBar*  playerMana;
-
-
-	ProgressBar*  enemyHeath;
-	ProgressBar* enemyMana;
-
-
+	int combatNumber = 0;
 
 	
 	public:	
@@ -49,10 +46,14 @@ class GameController: public GameObject {
 
 
 		void LogMessage();
+		void LogMessage(std::string message);
 		void linkLogMessage(CombatLogUI* const uiElement);
 
-		void bindPlayerProgressBars(ProgressBar* const playerHealth, ProgressBar* const playerMana) { this->playerHealth = playerHealth;  this->playerMana = playerMana; }
-		void bindEnemyProgressBars(ProgressBar* const enemyHeath, ProgressBar* const enemyMana) { this->enemyHeath = enemyHeath;  this->enemyMana = enemyMana; }
+		/*void bindPlayerProgressBars(ProgressBar* const playerHealth, ProgressBar* const playerMana) { this->playerHealth = playerHealth;  this->playerMana = playerMana; }
+		void bindEnemyProgressBars(ProgressBar* const enemyHeath, ProgressBar* const enemyMana) { this->enemyHeath = enemyHeath;  this->enemyMana = enemyMana; }*/
+
+		void bindPlayerUI(CharacterUI* playerUI) { this->playerUI = playerUI; };
+		void bindEnemyUI(CharacterUI* enemyUI) { this->enemyUI = enemyUI; };
 
 
 		virtual void Step() override;

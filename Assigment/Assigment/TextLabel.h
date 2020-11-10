@@ -9,6 +9,9 @@ class TextLabel :public GameObject{
 		TextLabel(std::string message="Default Message", std::string fontFile = "Roboto-Black.ttf");
 		~TextLabel();
 
+		void SetLabel(std::string message);
+
+
 		void Step() override;
 		void Draw(sf::RenderWindow& window) const override;
 };

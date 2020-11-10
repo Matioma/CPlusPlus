@@ -22,9 +22,16 @@ class Character :public GameObject,public CharacterActions{
 	int agility = 0;
 	int wits = 0;
 
+
+	bool isDead = false;
+
 	public:
 		float getHealthPercent();
 		float getSanityPercent();
+
+
+	
+		bool IsDead(){ return isDead; };
 
 
 		void Damage(int amount);

@@ -16,6 +16,7 @@ void Character::Damage(int amount)
 	currentHealth -= amount;
 	if (!currentHealth) {
 		currentHealth = 0;
+		isDead = true;
 	}
 }
 

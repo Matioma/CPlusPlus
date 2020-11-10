@@ -8,7 +8,7 @@ class ProgressBar :public  GameObject {
 	Sprite& background;
 	Sprite& foreground;
 
-	float progress =1;
+	float progress =1.0f;
 
 	int width;
 	int height;

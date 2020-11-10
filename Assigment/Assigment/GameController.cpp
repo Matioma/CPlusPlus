@@ -10,8 +10,7 @@ GameController::GameController(const Character& player)
 {
 	this->player = std::make_shared<Character>(player);
 	SetNewEnemy();
-	SetNewEnemy();
-
+	
 }
 
 void GameController::SetNewEnemy()
@@ -21,10 +20,22 @@ void GameController::SetNewEnemy()
 
 void GameController::CharacterAttacked()
 {
+	if (enemy->IsDead()) {
+		SetNewEnemy();
+		return;
+	}
+
 	if (playerMove) {
 		this->player->Attack(*this->enemy.get(), message);
 	}
 	LogMessage();
+
+	if (enemy->IsDead()) {
+		message = this->player->GetName() + " slained " + this->enemy->GetName();
+		LogMessage();
+		return;
+	}
+
 	EnemyMove();
 }
 
@@ -78,6 +89,14 @@ void GameController::LogMessage() {
 	}
 }
 
+void GameController::LogMessage(std::string message)
+{
+	this->message = message;
+	if (combatLogTextBox) {
+		combatLogTextBox->LogData(message);
+	}
+}
+
 
 void GameController::EnemyDied()
 {
@@ -92,12 +111,11 @@ void GameController::linkLogMessage(CombatLogUI* const uiElement)
 
 void GameController::Step()
 {
-
-	//Update progress bars
-	playerHealth->SetProgress(player->getHealthPercent());
-	playerMana->SetProgress(player->getSanityPercent());
-	enemyHeath->SetProgress(enemy->getHealthPercent());
-	enemyMana->SetProgress(enemy->getSanityPercent());
-	
+	if (playerUI) {
+		playerUI->UpdateValues(*player.get());
+	}
+	if (enemyUI) {
+		enemyUI->UpdateValues(*enemy.get());
+	}
 	GameObject::Step();
 }
