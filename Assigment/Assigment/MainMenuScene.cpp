@@ -37,11 +37,12 @@ void MainMenuScene::InitializeScene()
         AddChild(background);
 
         
-        HighScore* highScores = new HighScore();
-        highScores->setPosition(15, 15);
-        background->AddChild(highScores);
+        HighScore* highScore = new HighScore();
+        highScore->setPosition(15, 15);
+        background->AddChild(highScore);
 
-        highScores->DisplayScore(DataProccesor::GetInstance().getScores());
+        highScore->DisplayScore(DataProccesor::GetInstance().getScores());
+        this->highScore = highScore;
     }
    
 
@@ -77,9 +78,9 @@ void MainMenuScene::InitializeScene()
     button->move(0, 120);
     button->SetSpriteSize(150, 50);
     button->SetClickFunction(
-        []() {
+        [this]() {
             DataProccesor::GetInstance().ResetHighScores();
-        
+            highScore->DisplayScore(DataProccesor::GetInstance().getScores());
         }
     );
   

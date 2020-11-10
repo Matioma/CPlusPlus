@@ -44,6 +44,9 @@ void DataProccesor::ResetHighScores() {
     myfile.open(highScoreFile);
     myfile << "";
     myfile.close();
+
+
+    scores.clear();
 }
 
 
