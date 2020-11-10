@@ -61,6 +61,7 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
     Character character;
     int skillPointsToDistribute =skillPoints;
 
+    std::cout << skillPointsToDistribute << std::endl;
 
     int nameIndex = rand() % PossibleNames.size();
 
@@ -80,6 +81,8 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
     character.AddStrength();
     character.AddWits();
 
+    std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
+
 
     //Destributing the skill Points
     while (skillPointsToDistribute > 0) {
@@ -98,10 +101,13 @@ Character CharacterBuilder::CreateCharacter(int skillPoints)
                 character.AddWits();
                 break;
             default:
+                std::cout << "unkown attribute" << std::endl;
                 break;
         }
-
+        std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
     }
+
+    //std::cout << skillPointsToDistribute << " skill points," << character.GetStrength() << " Strength, " << character.GetAgility() << " Agility, " << character.GetWits() << "wits, " << std::endl;
 
     return character;
 }

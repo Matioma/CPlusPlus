@@ -10,11 +10,13 @@ GameController::GameController(const Character& player)
 {
 	this->player = std::make_shared<Character>(player);
 	SetNewEnemy();
+	SetNewEnemy();
+
 }
 
 void GameController::SetNewEnemy()
 {
-	this->enemy = std::make_shared<Character>(characterBuilder.CreateCharacter(5));
+	this->enemy = std::make_shared<Character>(characterBuilder.CreateCharacter(6));
 }
 
 void GameController::CharacterAttacked()

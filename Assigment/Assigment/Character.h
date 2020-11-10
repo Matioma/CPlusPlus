@@ -23,9 +23,11 @@ class Character :public GameObject,public CharacterActions{
 	int wits = 0;
 
 	public:
-
 		float getHealthPercent();
 		float getSanityPercent();
+
+
+		void Damage(int amount);
 
 		Character();
 		Character(const Character& character);
@@ -56,9 +58,8 @@ class Character :public GameObject,public CharacterActions{
 		void SetSpriteFileName(std::string fileName);
 		const std::string& GetSpriteFileName() const;
 
-
 		virtual void Attack(Character& character, std::string& logMessage) { 
-			character.currentHealth -= strength; 
+			character.Damage(strength);
 			logMessage = name +  " madly hit " + character.GetName() + "for " + std::to_string(strength);
 		};
 		virtual void Prepare(std::string& logMessage) {};

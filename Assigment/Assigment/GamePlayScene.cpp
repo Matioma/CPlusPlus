@@ -10,6 +10,7 @@
 #include "IntLabel.h"
 
 #include "ProgressBar.h"
+#include <iostream>
 
 GamePlayScene::GamePlayScene()
 {
@@ -18,6 +19,8 @@ GamePlayScene::GamePlayScene()
 
 GamePlayScene::GamePlayScene(const Character& player):gameController(player)
 {
+
+    std::cout << player.GetAgility() << " " << player.GetStrength() << " " << player.GetWits() << " " << std::endl;
     InitializeScene();
 }
 

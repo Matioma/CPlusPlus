@@ -18,7 +18,7 @@ CharacterSelectScene::~CharacterSelectScene()
 
 void CharacterSelectScene::InitializeScene()
 {
-    character =  characterBuilder.CreateCharacter(5);
+    character =  characterBuilder.CreateCharacter(8);
     
 
 
@@ -100,6 +100,8 @@ void CharacterSelectScene::InitializeScene()
         AddChild(witsAttribute);
     }
 
+
+
     //Buttons
     Button* CancelButton = new Button("CharacterPlaceHolder1.png");
     CancelButton->SetText("Cancel");
@@ -124,7 +126,7 @@ void CharacterSelectScene::InitializeScene()
     RandomizeButton->setPosition(897, 180);
     RandomizeButton->SetSpriteSize(290, 66);
     RandomizeButton->onClick = [this]() {
-        this->character = this->characterBuilder.CreateCharacter(5);
+        this->character = this->characterBuilder.CreateCharacter(8);
     };
     AddChild(RandomizeButton);
 }

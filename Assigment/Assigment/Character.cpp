@@ -10,6 +10,15 @@ float Character::getSanityPercent()
 	return (float)currentSanity / maxSanity;
 }
 
+
+void Character::Damage(int amount)
+{
+	currentHealth -= amount;
+	if (!currentHealth) {
+		currentHealth = 0;
+	}
+}
+
 Character::Character()
 {
 }
@@ -75,15 +84,17 @@ const std::string& Character::GetNameRef() const
 }
 void Character::AddStrength(int amount)
 {
-	SetStrength(strength + amount);
+	int newStrength = strength + amount;
+	SetStrength(newStrength);
 }
 void Character::AddAgility(int amount)
 {
-	SetAgility(agility + amount);
+	int newAgility = agility + amount;
+	SetAgility(newAgility);
 }
 void Character::AddWits(int amount)
 {
-	SetWits(agility + amount);
+	SetWits(wits + amount);
 }
 void Character::SetName(std::string pName)
 {
