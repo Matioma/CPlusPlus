@@ -14,7 +14,7 @@ float Character::getSanityPercent()
 void Character::Damage(int amount)
 {
 	currentHealth -= amount;
-	if (!currentHealth) {
+	if (currentHealth<=0) {
 		currentHealth = 0;
 		isDead = true;
 	}

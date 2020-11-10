@@ -49,8 +49,7 @@ class GameController: public GameObject {
 		void LogMessage(std::string message);
 		void linkLogMessage(CombatLogUI* const uiElement);
 
-		/*void bindPlayerProgressBars(ProgressBar* const playerHealth, ProgressBar* const playerMana) { this->playerHealth = playerHealth;  this->playerMana = playerMana; }
-		void bindEnemyProgressBars(ProgressBar* const enemyHeath, ProgressBar* const enemyMana) { this->enemyHeath = enemyHeath;  this->enemyMana = enemyMana; }*/
+
 
 		void bindPlayerUI(CharacterUI* playerUI) { this->playerUI = playerUI; };
 		void bindEnemyUI(CharacterUI* enemyUI) { this->enemyUI = enemyUI; };

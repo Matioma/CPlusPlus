@@ -20,8 +20,10 @@ class CharacterUI :public GameObject {
 		TextLabel* strengthLabel;
 		TextLabel* agilityLabel;
 		TextLabel* witsLabel;
+
+
+		virtual void Initialize() = 0;
 	public:
 		CharacterUI();
-		virtual void Initialize() =0;
 		void UpdateValues(Character& characterData);
 };

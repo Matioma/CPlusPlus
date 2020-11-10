@@ -55,8 +55,6 @@ void GamePlayScene::InitializeScene()
     AddChild(enemyUI);
     gameController.bindEnemyUI(enemyUI);
 
-
-
     //Combat Log
     {
         Sprite* logBackground = new Sprite(0, 0, "RedBG.jpg");

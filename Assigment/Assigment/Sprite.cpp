@@ -70,10 +70,19 @@ void Sprite::SetSpriteSize(float width, float heigth)
 {
 	sf::FloatRect rect = spriteObject.getGlobalBounds();
 
+	
+
 
 	float scaleX = width / rect.width;
 	float scaleY = heigth / rect.height;
+
+	
+
+	if (scaleX == 0) { scaleX += 0.001f; }
+
+
 	spriteObject.scale(scaleX, scaleY);
+	
 }
 
 void Sprite::Step()
