@@ -21,8 +21,16 @@ class GameController: public GameObject {
 	CharacterUI* playerUI;
 	CharacterUI* enemyUI;
 
-	int combatNumber = 0;
+	
 
+	int HighScore = 0;
+
+	int EnemiesAttributes = 6;
+
+
+	int combatNumber = 0;
+	int chanceForExtraPoint = 20;
+	int changeIncreasePerRound = 5;
 	
 	public:	
 	std::shared_ptr<Character> player;
@@ -47,6 +55,7 @@ class GameController: public GameObject {
 
 		void LogMessage();
 		void LogMessage(std::string message);
+		void OnPlayerDeath();
 		void linkLogMessage(CombatLogUI* const uiElement);
 
 

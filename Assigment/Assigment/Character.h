@@ -24,17 +24,33 @@ class Character :public GameObject,public CharacterActions{
 
 
 	bool isDead = false;
+	bool isInsane = false;
+
+
+	bool isPrepared = false;
 
 	public:
 		float getHealthPercent();
 		float getSanityPercent();
-
-
 	
+
+
 		bool IsDead(){ return isDead; };
+		bool IsInsane() { return isInsane; };
+
+		bool IsPrepared() { return isPrepared; };
+		void Dodge() { isPrepared = false; };
+		void ResetPrepaired() { isPrepared = false; }
+
 
 
 		void Damage(int amount);
+
+		void LoseSanity(int amount);
+
+		void Heal(int amount);
+
+		void RestoreSanity(int amount);
 
 		Character();
 		Character(const Character& character);
@@ -65,14 +81,10 @@ class Character :public GameObject,public CharacterActions{
 		void SetSpriteFileName(std::string fileName);
 		const std::string& GetSpriteFileName() const;
 
-		virtual void Attack(Character& character, std::string& logMessage) { 
-			character.Damage(strength);
-			logMessage = name +  " madly hit " + character.GetName() + "for " + std::to_string(strength);
-		};
-		virtual void Prepare(std::string& logMessage) {};
-		virtual void Recover(std::string& logMessage) {};
-		virtual bool CastMagic(Character& character, std::string& logMessage) { 
-			currentSanity -= 1;
-			logMessage = "Not enough mana"; return false; };
-		virtual void MakeRandomMove(Character& target, std::string& logMessage) {};
+		virtual void Attack(Character& character, std::string& logMessage) override;
+		virtual void Prepare(std::string& logMessage) override;
+		virtual void Recover(std::string& logMessage) override;
+		virtual bool CastMagic(Character& character, std::string& logMessage) override;
+		virtual void TrembleInFear(std::string& logMessage) override;
+		virtual void MakeRandomMove(Character& target, std::string& logMessage) override;
 };

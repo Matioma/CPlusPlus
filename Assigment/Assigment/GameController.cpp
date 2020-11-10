@@ -15,27 +15,56 @@ GameController::GameController(const Character& player)
 
 void GameController::SetNewEnemy()
 {
-	this->enemy = std::make_shared<Character>(characterBuilder.CreateCharacter(6));
+	combatNumber++;
+	if (combatNumber % 3 == 0) {
+		chanceForExtraPoint += changeIncreasePerRound;
+	}
+
+	int randomValue = rand() % 100;
+	if (randomValue > chanceForExtraPoint) {
+		EnemiesAttributes++;
+	}
+
+	this->enemy = std::make_shared<Character>(characterBuilder.CreateCharacter(EnemiesAttributes));
+
+	
+	
+
+	
 }
 
 void GameController::CharacterAttacked()
 {
-	if (enemy->IsDead()) {
+	//Start new Round
+	if (enemy->IsDead() || enemy->IsInsane()) {
 		SetNewEnemy();
 		return;
 	}
 
+
+
+	//Player attck enemy
 	if (playerMove) {
 		this->player->Attack(*this->enemy.get(), message);
 	}
 	LogMessage();
 
+
+
+	//If enemy Died
 	if (enemy->IsDead()) {
-		message = this->player->GetName() + " slained " + this->enemy->GetName();
-		LogMessage();
+		LogMessage(this->player->GetName() + " slained " + this->enemy->GetName());
+
+		
+		if (this->player->IsPrepared()) {
+			LogMessage(this->player->GetName() + "Lost his prepared Effect ");
+			this->player->ResetPrepaired();
+		}
 		return;
 	}
 
+
+	//If enemy is alive after attack
 	EnemyMove();
 }
 
@@ -62,11 +91,22 @@ void GameController::CharacterRecovered()
 
 void GameController::CharacterCastMagic()
 {
+	if (enemy->IsDead() || enemy->IsInsane()) {
+		SetNewEnemy();
+		return;
+	}
+
+
 	if (playerMove) {
 		this->player->CastMagic(*this->enemy.get(), message);
 		playerMove = false;
 	}
 	LogMessage();
+
+	if (player->IsInsane()) {
+		LogMessage(player->GetName() + "Got insane you lost" );
+	}
+
 	if (!playerMove) {
 		EnemyMove();
 	}
@@ -79,6 +119,11 @@ void GameController::EnemyMove() {
 	if (!playerMove) {
 		this->enemy->MakeRandomMove(*this->player.get(),message);
 		playerMove = true;
+
+
+		if (player->IsDead() || player->IsInsane()) {
+			OnPlayerDeath();
+		}
 	}
 }
 
@@ -96,6 +141,14 @@ void GameController::LogMessage(std::string message)
 		combatLogTextBox->LogData(message);
 	}
 }
+
+void GameController::OnPlayerDeath() {
+	message = "You have died \n";
+	message = "Your score is: " +  HighScore;
+
+	LogMessage(message);
+}
+
 
 
 void GameController::EnemyDied()
