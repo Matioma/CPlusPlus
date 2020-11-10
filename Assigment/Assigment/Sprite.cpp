@@ -2,6 +2,7 @@
 
 #include "Resources.h"
 #include "InputManager.h"
+#include <iostream>
 
 Sprite::Sprite()
 {
@@ -68,15 +69,17 @@ void Sprite::SetSpriteWidth( float newWidth)
 void Sprite::SetSpriteSize(float width, float heigth)
 {
 	sf::FloatRect rect = spriteObject.getGlobalBounds();
+
+
 	float scaleX = width / rect.width;
 	float scaleY = heigth / rect.height;
-	spriteObject.setScale(scaleX, scaleY);
+	spriteObject.scale(scaleX, scaleY);
 }
 
 void Sprite::Step()
 {
-	
 	spriteObject.setPosition(getPosition());
+	
 	GameObject::Step();
 }
 

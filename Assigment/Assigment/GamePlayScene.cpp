@@ -9,6 +9,8 @@
 #include "StringLabel.h"
 #include "IntLabel.h"
 
+#include "ProgressBar.h"
+
 
 GamePlayScene::GamePlayScene()
 {
@@ -44,11 +46,27 @@ void GamePlayScene::InitializeScene()
         avatar->SetSpriteSize(173, 173);
         bgImage->AddChild(avatar);
 
-
         TextLabel* characterName = new TextLabel(gameController.player->GetName());
         characterName->setPosition(236, 31);
         AddChild(characterName);
 
+
+        {
+            ProgressBar* playerHealthProgressBar = new ProgressBar("Background.png", "RedBG.jpg", 1.0f);
+            playerHealthProgressBar->setPosition(236, 147);
+            playerHealthProgressBar->SetDimensions(204, 23);
+            playerHealthProgressBar->SetProgress(0.80f);
+            AddChild(playerHealthProgressBar);
+        }
+        {
+            ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "RedBG.jpg", 1.0f);
+            playerManaProgressBar->setPosition(236, 177);
+            playerManaProgressBar->SetDimensions(204, 23);
+            playerManaProgressBar->SetProgress(1.0f);
+            AddChild(playerManaProgressBar);
+        }
+
+        //Strength Stat
         {
             Sprite* statsBlock = new Sprite(236, 75, "Background.png");
             statsBlock->SetSpriteSize(47, 47);
@@ -58,6 +76,7 @@ void GamePlayScene::InitializeScene()
             strLabel->setPosition(14, 8);
             statsBlock->AddChild(strLabel);
         }
+        //Agility Stat
         {
             Sprite* statsBlock = new Sprite(314, 75, "Background.png");
             statsBlock->SetSpriteSize(47, 47);
@@ -67,6 +86,7 @@ void GamePlayScene::InitializeScene()
             strLabel->setPosition(14, 8);
             statsBlock->AddChild(strLabel);
         }
+        //Wits Stat
         {
             Sprite* statsBlock = new Sprite(393, 75, "Background.png");
             statsBlock->SetSpriteSize(47, 47);

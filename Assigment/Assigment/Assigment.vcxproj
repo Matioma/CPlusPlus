@@ -152,6 +152,7 @@
     <ClCompile Include="IntLabel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IntLabel.h" />
     <ClInclude Include="IRenewable.h" />
+    <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="SpriteBinded.h" />
     <ClInclude Include="StringLabel.h" />
     <ClInclude Include="TextBox.h" />
