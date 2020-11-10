@@ -22,6 +22,11 @@ void TextBox::SetMessage(std::string newMessage)
 	textObject.setString(newMessage);
 }
 
+void TextBox::SetFontSize(int size)
+{
+	textObject.setCharacterSize(size);
+}
+
 void TextBox::Step()
 {
 	textObject.setPosition(getPosition());

@@ -29,14 +29,22 @@ void GamePlayScene::InitializeScene()
     background->SetSpriteWidth(1280);
     AddChild(background);
 
+
+
+
     //Combat Log
     {
-        //std::shared_ptr<CombatLogUI> log(new CombatLogUI());
+        Sprite* logBackground = new Sprite(0, 0, "CharacterPlaceHolder1.png");
+        logBackground->setPosition(206, 365);
+        logBackground->SetSpriteSize(867, 147);
+        AddChild(logBackground);
 
         CombatLogUI* log = new CombatLogUI();
         gameController.linkLogMessage(log);
         log->SetMessage("Battle Started");
-        
+        log->setPosition(216, 375);
+        log->SetFontSize(12);
+
         AddChild(log);
     }
 

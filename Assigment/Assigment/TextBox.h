@@ -12,7 +12,8 @@ class TextBox : public GameObject {
 		TextBox(float x, float y, std::string message = "Default Text", std::string filePath="Roboto-Black.ttf");
 
 		void SetMessage(std::string newMessage);
-		
+		void SetFontSize(int size);
+
 
 		void Step() override;
 		void Draw(sf::RenderWindow& window) const override;
