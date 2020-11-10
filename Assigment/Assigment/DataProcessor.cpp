@@ -39,6 +39,13 @@ void DataProccesor::LoadHighScore() {
 
 }
 
+void DataProccesor::ResetHighScores() {
+    std::ofstream myfile;
+    myfile.open(highScoreFile);
+    myfile << "";
+    myfile.close();
+}
+
 
 void DataProccesor::SaveHighScore(int score) {
     std:std::string newScore = std::to_string(score);

@@ -9,21 +9,45 @@
 #include "Button.h"
 #include "SceneManager.h"
 #include "GamePlayScene.h"
+#include "DataProcessor.h"
+#include "HighScore.h"
 
 MainMenuScene::~MainMenuScene()
 {
 }
 
 MainMenuScene::MainMenuScene():Scene() {
+    DataProccesor::GetInstance().LoadHighScore();
     InitializeScene();
+
+
 }
 
 void MainMenuScene::InitializeScene()
 {
 
-    Sprite* background = new Sprite(0,0, "Background.png");
+    Sprite* background = new Sprite(0, 0, "Background.png");
     background->SetSpriteWidth(1280);
     AddChild(background);
+
+    {
+        Sprite* background = new Sprite(0, 0, "RedBG.jpg");
+        background->setPosition(110, 167);
+        background->SetSpriteSize(261, 385);
+        AddChild(background);
+
+        
+        HighScore* highScores = new HighScore();
+        highScores->setPosition(15, 15);
+        background->AddChild(highScores);
+
+        highScores->DisplayScore(DataProccesor::GetInstance().getScores());
+    }
+   
+
+
+
+
 
     TextBox* text = new TextBox("Nether Fights");
     text->setPosition(1280/2 -50, 30);
@@ -52,7 +76,13 @@ void MainMenuScene::InitializeScene()
     button->setPosition(1280 - 300, 150);
     button->move(0, 120);
     button->SetSpriteSize(150, 50);
-    button->onClick = []() {printf_s("Button lambda method button Pressed \n"); };
+    button->SetClickFunction(
+        []() {
+            DataProccesor::GetInstance().ResetHighScores();
+        
+        }
+    );
+  
     AddChild(button);
   
     button = new Button("CharacterPlaceHolder1.png");

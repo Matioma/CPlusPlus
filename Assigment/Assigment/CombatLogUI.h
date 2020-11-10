@@ -7,8 +7,8 @@ class CombatLogUI :public TextBox{
 	public:	
 		std::list<std::string> Log;
 
-		int messagesToDisplay =7;
+		int messagesToDisplay =5;
 
 	CombatLogUI();
-	void LogData(std::string& data);
+	void LogData(const std::string& data);
 };

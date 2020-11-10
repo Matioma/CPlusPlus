@@ -5,7 +5,7 @@ CombatLogUI::CombatLogUI()
 {
 }
 
-void CombatLogUI::LogData(std::string& data)
+void CombatLogUI::LogData(const std::string& data)
 {
 	this->Log.push_front(data);
 	

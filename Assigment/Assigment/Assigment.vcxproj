@@ -151,6 +151,7 @@
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlayScene.cpp" />
+    <ClCompile Include="HighScore.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="IntLabel.cpp" />
     <ClCompile Include="main.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="EnemyUI.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GamePlayScene.h" />
+    <ClInclude Include="HighScore.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IntLabel.h" />
