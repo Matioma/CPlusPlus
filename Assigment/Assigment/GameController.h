@@ -9,20 +9,16 @@
 class GameController {
 	CharacterBuilder characterBuilder;
 
-
 	std::string message;
 	std::string log;
 
-
-
 	CombatLogUI* combatLogTextBox;
 
-
+	public:	
 	std::shared_ptr<Character> player;
 	std::shared_ptr<Character> enemy;
 
 	bool playerMove = true;
-
 	public:
 		GameController();
 		GameController(const Character& player);

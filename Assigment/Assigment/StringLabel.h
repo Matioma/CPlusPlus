@@ -2,12 +2,12 @@
 
 #include "TextLabel.h"
 
-class StringLabel : public TextLabel {
+class BindedLabel : public TextLabel {
 	const std::string& value;
 
 public:
-	StringLabel(const std::string& pValue);
-	~StringLabel();
+	BindedLabel(const std::string& pValue);
+	~BindedLabel();
 
 	void Step() override;
 };

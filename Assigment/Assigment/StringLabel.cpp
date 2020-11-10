@@ -2,15 +2,15 @@
 
 
 
-StringLabel::StringLabel(const std::string& pValue):value(pValue)
+BindedLabel::BindedLabel(const std::string& pValue):value(pValue)
 {
 }
 
-StringLabel::~StringLabel()
+BindedLabel::~BindedLabel()
 {
 }
 
-void StringLabel::Step()
+void BindedLabel::Step()
 {
 	TextLabel::Step();
 	labelText.setString(value);

@@ -49,7 +49,7 @@ void CharacterSelectScene::InitializeScene()
     nameLabel->setPosition(483, 208);
     AddChild(nameLabel);
 
-    StringLabel* strLabel = new StringLabel(character.GetNameRef());
+    BindedLabel* strLabel = new BindedLabel(character.GetNameRef());
     strLabel->setPosition(483, 238);
     AddChild(strLabel);
     

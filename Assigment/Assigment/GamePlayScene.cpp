@@ -5,6 +5,9 @@
 
 #include "GameController.h"
 #include "CombatLogUI.h"
+#include "SpriteBinded.h"
+#include "StringLabel.h"
+#include "IntLabel.h"
 
 
 GamePlayScene::GamePlayScene()
@@ -25,24 +28,75 @@ GamePlayScene::~GamePlayScene()
 
 void GamePlayScene::InitializeScene()
 {
-    Sprite* background = new Sprite(0, 0, "Background.png");
+    Sprite* background = new Sprite(0, 0, "WhiteBG.jpg");
     background->SetSpriteWidth(1280);
     AddChild(background);
 
+
+    //Character1
+    {
+        Sprite* bgImage = new Sprite(47, 31, "RedBG.jpg");
+        bgImage->SetSpriteSize(173, 173);
+        AddChild(bgImage);
+       
+        SpriteBinded* avatar = new SpriteBinded(gameController.player->GetSpriteFileName());
+        avatar->setPosition(0, 0);
+        avatar->SetSpriteSize(173, 173);
+        bgImage->AddChild(avatar);
+
+
+        TextLabel* characterName = new TextLabel(gameController.player->GetName());
+        characterName->setPosition(236, 31);
+        AddChild(characterName);
+
+        {
+            Sprite* statsBlock = new Sprite(236, 75, "Background.png");
+            statsBlock->SetSpriteSize(47, 47);
+            AddChild(statsBlock);
+
+            IntLabel* strLabel = new IntLabel(gameController.player->GetStrengthRef());
+            strLabel->setPosition(14, 8);
+            statsBlock->AddChild(strLabel);
+        }
+        {
+            Sprite* statsBlock = new Sprite(314, 75, "Background.png");
+            statsBlock->SetSpriteSize(47, 47);
+            AddChild(statsBlock);
+
+            IntLabel* strLabel = new IntLabel(gameController.player->GetAgilityRef());
+            strLabel->setPosition(14, 8);
+            statsBlock->AddChild(strLabel);
+        }
+        {
+            Sprite* statsBlock = new Sprite(393, 75, "Background.png");
+            statsBlock->SetSpriteSize(47, 47);
+            AddChild(statsBlock);
+
+            IntLabel* strLabel = new IntLabel(gameController.player->GetWitsRef());
+            strLabel->setPosition(14, 8);
+            statsBlock->AddChild(strLabel);
+        }
+       
+
+
+        //StringLabel* stringLabel = new StringLabel(gameController.player->GetNameRef());
+
+
+    }
 
 
 
     //Combat Log
     {
-        Sprite* logBackground = new Sprite(0, 0, "CharacterPlaceHolder1.png");
-        logBackground->setPosition(206, 365);
-        logBackground->SetSpriteSize(867, 147);
+        Sprite* logBackground = new Sprite(0, 0, "RedBG.jpg");
+        logBackground->setPosition(206, 441);
+        logBackground->SetSpriteSize(867, 100);
         AddChild(logBackground);
 
         CombatLogUI* log = new CombatLogUI();
         gameController.linkLogMessage(log);
         log->SetMessage("Battle Started");
-        log->setPosition(216, 375);
+        log->setPosition(206, 441);
         log->SetFontSize(12);
 
         AddChild(log);
@@ -53,15 +107,12 @@ void GamePlayScene::InitializeScene()
         Button* button = new Button("CharacterPlaceHolder1.png");
         button->SetText("");
         
-        button->setPosition(206, 512);
+        button->setPosition(206, 541);
         button->SetSpriteSize(192, 30);
         button->SetClickFunction([this]() {
             this->gameController.CharacterAttacked();
 
         });
-        /*button->onClick = []() {
-        };*/
-
 
         TextLabel* textLabel = new TextLabel("Attack");
         button->AddChild(textLabel);
@@ -74,7 +125,7 @@ void GamePlayScene::InitializeScene()
         Button* button = new Button("CharacterPlaceHolder1.png");
         button->SetText("");
 
-        button->setPosition(425, 512);
+        button->setPosition(425, 541);
         button->SetSpriteSize(192, 30);
         button->SetClickFunction([this]() {
             this->gameController.CharacterPrepared();
@@ -92,7 +143,7 @@ void GamePlayScene::InitializeScene()
         Button* button = new Button("CharacterPlaceHolder1.png");
         button->SetText("");
 
-        button->setPosition(653, 512);
+        button->setPosition(653, 541);
         button->SetSpriteSize(192, 30);
         button->SetClickFunction([this]() {
             this->gameController.CharacterRecovered();
@@ -112,7 +163,7 @@ void GamePlayScene::InitializeScene()
         Button* button = new Button("CharacterPlaceHolder1.png");
         button->SetText("");
 
-        button->setPosition(881, 512);
+        button->setPosition(881, 541);
         button->SetSpriteSize(192, 30);
         button->SetClickFunction([this]() {
             this->gameController.CharacterCastMagic();
