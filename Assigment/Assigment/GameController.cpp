@@ -87,3 +87,15 @@ void GameController::linkLogMessage(CombatLogUI* const uiElement)
 	message = "Battle Started";
 	LogMessage();
 }
+
+void GameController::Step()
+{
+
+	//Update progress bars
+	playerHealth->SetProgress(player->getHealthPercent());
+	playerMana->SetProgress(player->getSanityPercent());
+	enemyHeath->SetProgress(enemy->getHealthPercent());
+	enemyMana->SetProgress(enemy->getSanityPercent());
+	
+	GameObject::Step();
+}

@@ -8,13 +8,25 @@ class Character :public GameObject,public CharacterActions{
 	std::string name= "Name";
 	std::string spriteFileName ="CharacterPlaceHolder2.png";
 
-	int health = 0;
-	int sanity = 0;
+
+
+	int maxHealth = 0;
+	int currentHealth =0;
+
+
+	int maxSanity = 0;
+	int currentSanity = 0;
+
+
 	int strength = 0;
 	int agility = 0;
 	int wits = 0;
 
 	public:
+
+		float getHealthPercent();
+		float getSanityPercent();
+
 		Character();
 		Character(const Character& character);
 		~Character();
@@ -46,11 +58,13 @@ class Character :public GameObject,public CharacterActions{
 
 
 		virtual void Attack(Character& character, std::string& logMessage) { 
-			character.health -= strength; 
+			character.currentHealth -= strength; 
 			logMessage = name +  " madly hit " + character.GetName() + "for " + std::to_string(strength);
 		};
 		virtual void Prepare(std::string& logMessage) {};
 		virtual void Recover(std::string& logMessage) {};
-		virtual bool CastMagic(Character& character, std::string& logMessage) { logMessage = "Not enough mana"; return false; };
+		virtual bool CastMagic(Character& character, std::string& logMessage) { 
+			currentSanity -= 1;
+			logMessage = "Not enough mana"; return false; };
 		virtual void MakeRandomMove(Character& target, std::string& logMessage) {};
 };

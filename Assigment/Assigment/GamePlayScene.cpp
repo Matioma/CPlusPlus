@@ -11,7 +11,6 @@
 
 #include "ProgressBar.h"
 
-
 GamePlayScene::GamePlayScene()
 {
     InitializeScene();
@@ -19,7 +18,6 @@ GamePlayScene::GamePlayScene()
 
 GamePlayScene::GamePlayScene(const Character& player):gameController(player)
 {
-    //playerCharacter = player;
     InitializeScene();
 }
 
@@ -28,11 +26,20 @@ GamePlayScene::~GamePlayScene()
 	
 }
 
+
+
+void GamePlayScene::Step()
+{
+    GameObject::Step();
+    gameController.Step();
+}
+
 void GamePlayScene::InitializeScene()
 {
     Sprite* background = new Sprite(0, 0, "WhiteBG.jpg");
     background->SetSpriteWidth(1280);
     AddChild(background);
+
 
 
     //Character1
@@ -57,13 +64,16 @@ void GamePlayScene::InitializeScene()
             playerHealthProgressBar->SetDimensions(204, 23);
             playerHealthProgressBar->SetProgress(0.80f);
             AddChild(playerHealthProgressBar);
-        }
-        {
+       
+
+            //Mana progress Bar
             ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "BlueBG.jpg", 1.0f);
             playerManaProgressBar->setPosition(236, 177);
             playerManaProgressBar->SetDimensions(204, 23);
             playerManaProgressBar->SetProgress(1.0f);
             AddChild(playerManaProgressBar);
+
+            gameController.bindPlayerProgressBars(playerHealthProgressBar, playerManaProgressBar);
         }
 
         //Strength Stat
@@ -126,14 +136,16 @@ void GamePlayScene::InitializeScene()
             playerHealthProgressBar->SetDimensions(204, 23);
             playerHealthProgressBar->SetProgress(0.80f);
             AddChild(playerHealthProgressBar);
-        }
-        //Mana Progres Bar
-        {
+        
+            //Mana Progress Bar
             ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "BlueBG.jpg", 1.0f);
             playerManaProgressBar->setPosition(829, 177);
             playerManaProgressBar->SetDimensions(204, 23);
             playerManaProgressBar->SetProgress(1.0f);
             AddChild(playerManaProgressBar);
+
+
+            gameController.bindEnemyProgressBars(playerHealthProgressBar, playerManaProgressBar);
         }
 
         //Strength Stat

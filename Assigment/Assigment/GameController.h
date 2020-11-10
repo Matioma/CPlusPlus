@@ -3,10 +3,11 @@
 #include "Character.h"
 #include "CharacterBuilder.h"
 #include "CombatLogUI.h"
+#include "ProgressBar.h"
 
+#include "GameObject.h"
 
-
-class GameController {
+class GameController: public GameObject {
 	CharacterBuilder characterBuilder;
 
 	std::string message;
@@ -14,6 +15,18 @@ class GameController {
 
 	CombatLogUI* combatLogTextBox;
 
+
+
+	ProgressBar*  playerHealth;
+	ProgressBar*  playerMana;
+
+
+	ProgressBar*  enemyHeath;
+	ProgressBar* enemyMana;
+
+
+
+	
 	public:	
 	std::shared_ptr<Character> player;
 	std::shared_ptr<Character> enemy;
@@ -31,8 +44,16 @@ class GameController {
 		void CharacterCastMagic();
 
 		void EnemyMove();
-		void LogMessage();
+		
 		void EnemyDied();
 
+
+		void LogMessage();
 		void linkLogMessage(CombatLogUI* const uiElement);
+
+		void bindPlayerProgressBars(ProgressBar* const playerHealth, ProgressBar* const playerMana) { this->playerHealth = playerHealth;  this->playerMana = playerMana; }
+		void bindEnemyProgressBars(ProgressBar* const enemyHeath, ProgressBar* const enemyMana) { this->enemyHeath = enemyHeath;  this->enemyMana = enemyMana; }
+
+
+		virtual void Step() override;
 };

@@ -14,12 +14,11 @@ class ProgressBar :public  GameObject {
 	int height;
 
 
+
+
 	public:
-	ProgressBar(std::string backgroundFile, std::string foreGroundFile, float progress = 1.0f);
-	
-
+	ProgressBar(std::string backgroundFile, std::string foreGroundFile,  float progress = 1.0f);
 	void SetDimensions(int width, int height);
-
 	void SetProgress(float value);
 
 

@@ -12,11 +12,17 @@
 class GamePlayScene :public Scene {
 	GameController gameController;
 
+
+
+
 public:
 
 	GamePlayScene();
 	GamePlayScene(const Character& player);
 	~GamePlayScene();
 
+
+
+	virtual void Step() override;
 	void InitializeScene() override;
 };

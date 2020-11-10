@@ -1,5 +1,15 @@
 #include "Character.h"
 
+float Character::getHealthPercent()
+{
+	return (float)currentHealth/maxHealth;
+}
+
+float Character::getSanityPercent()
+{
+	return (float)currentSanity / maxSanity;
+}
+
 Character::Character()
 {
 }
@@ -21,7 +31,8 @@ Character::~Character()
 void Character::SetStrength(int pStrength)
 {
 	strength = pStrength;
-	health = 3 * pStrength;
+	maxHealth = 3 * pStrength;
+	currentHealth = maxHealth;
 }
 
 void Character::SetAgility(int pAgility)
@@ -31,7 +42,8 @@ void Character::SetAgility(int pAgility)
 void Character::SetWits(int pWits)
 {
 	wits = pWits;
-	sanity = 2 * wits;
+	maxSanity = 2 * wits;
+	currentSanity = maxSanity;
 }
 int Character::GetStrength() const
 {
