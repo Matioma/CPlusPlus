@@ -59,7 +59,7 @@ void GamePlayScene::InitializeScene()
             AddChild(playerHealthProgressBar);
         }
         {
-            ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "RedBG.jpg", 1.0f);
+            ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "BlueBG.jpg", 1.0f);
             playerManaProgressBar->setPosition(236, 177);
             playerManaProgressBar->SetDimensions(204, 23);
             playerManaProgressBar->SetProgress(1.0f);
@@ -104,7 +104,69 @@ void GamePlayScene::InitializeScene()
 
     }
 
+    //Character2
+    {
+        Sprite* bgImage = new Sprite(1070, 31, "RedBG.jpg");
+        bgImage->SetSpriteSize(173, 173);
+        AddChild(bgImage);
 
+        SpriteBinded* avatar = new SpriteBinded(gameController.enemy->GetSpriteFileName());
+        avatar->setPosition(0, 0);
+        avatar->SetSpriteSize(173, 173);
+        bgImage->AddChild(avatar);
+
+        TextLabel* characterName = new TextLabel(gameController.enemy->GetName());
+        characterName->setPosition(966, 31);
+        AddChild(characterName);
+
+        //Health Progress Bar
+        {
+            ProgressBar* playerHealthProgressBar = new ProgressBar("Background.png", "RedBG.jpg", 1.0f);
+            playerHealthProgressBar->setPosition(829, 147);
+            playerHealthProgressBar->SetDimensions(204, 23);
+            playerHealthProgressBar->SetProgress(0.80f);
+            AddChild(playerHealthProgressBar);
+        }
+        //Mana Progres Bar
+        {
+            ProgressBar* playerManaProgressBar = new ProgressBar("Background.png", "BlueBG.jpg", 1.0f);
+            playerManaProgressBar->setPosition(829, 177);
+            playerManaProgressBar->SetDimensions(204, 23);
+            playerManaProgressBar->SetProgress(1.0f);
+            AddChild(playerManaProgressBar);
+        }
+
+        //Strength Stat
+        {
+            Sprite* statsBlock = new Sprite(829, 75, "Background.png");
+            statsBlock->SetSpriteSize(47, 47);
+            AddChild(statsBlock);
+
+            IntLabel* strLabel = new IntLabel(gameController.enemy->GetStrengthRef());
+            strLabel->setPosition(14, 8);
+            statsBlock->AddChild(strLabel);
+        }
+        //Agility Stat
+        {
+            Sprite* statsBlock = new Sprite(907, 75, "Background.png");
+            statsBlock->SetSpriteSize(47, 47);
+            AddChild(statsBlock);
+
+            IntLabel* strLabel = new IntLabel(gameController.enemy->GetAgilityRef());
+            strLabel->setPosition(14, 8);
+            statsBlock->AddChild(strLabel);
+        }
+        //Wits Stat
+        {
+            Sprite* statsBlock = new Sprite(986, 75, "Background.png");
+            statsBlock->SetSpriteSize(47, 47);
+            AddChild(statsBlock);
+
+            IntLabel* strLabel = new IntLabel(gameController.enemy->GetWitsRef());
+            strLabel->setPosition(14, 8);
+            statsBlock->AddChild(strLabel);
+        }
+    }
 
     //Combat Log
     {
