@@ -1,6 +1,7 @@
 #include "DataProcessor.h"
 #include <iostream>
 #include <fstream>
+#include <algorithm> 
 
 
 
@@ -54,6 +55,9 @@ void DataProccesor::SaveHighScore(int score) {
     std:std::string newScore = std::to_string(score);
     scores.push_back(newScore);
 
+
+    std::sort(scores.begin(), scores.end());
+    std::reverse(scores.begin(), scores.end());
     std::ofstream myfile;
     myfile.open(highScoreFile);
     for(auto iterator = scores.begin(); iterator != scores.end(); iterator++){
