@@ -19,36 +19,71 @@ void GameController::SetNewEnemy()
 
 void GameController::CharacterAttacked()
 {
-	if (PlayerMove) {
-		this->player->Attack(*this->enemy.get());
+	if (playerMove) {
+		this->player->Attack(*this->enemy.get(), message);
 	}
-	std::cout << "Player attacked "<< std::endl;
+	LogMessage();
+	EnemyMove();
 }
 
 void GameController::CharacterPrepared()
 {
-	if (PlayerMove) {
-		this->player->Prepare();
+	if (playerMove) {
+		this->player->Prepare(message);
+		playerMove = false;
 	}
-	std::cout << "Player prepared " << std::endl;
+	LogMessage();
+	EnemyMove();
 }
 
 void GameController::CharacterRecovered()
 {
-	if (PlayerMove) {
-		this->player->Recover();
+	if (playerMove) {
+		this->player->Recover(message);
+		playerMove = false;
 	}
-	std::cout << "Player recovered " << std::endl;
+	LogMessage();
+	EnemyMove();
 }
+
 
 void GameController::CharacterCastMagic()
 {
-	if (PlayerMove) {
-		this->player->CastMagic(*this->enemy.get());
+	if (playerMove) {
+		this->player->CastMagic(*this->enemy.get(), message);
+		playerMove = false;
 	}
-	std::cout << "Player cast magic " << std::endl;
+	LogMessage();
+	if (!playerMove) {
+		EnemyMove();
+	}
+	
 }
+
+
+void GameController::EnemyMove() {
+	message = "Enemy move was";
+	if (!playerMove) {
+		this->enemy->MakeRandomMove(*this->player.get(),message);
+		playerMove = true;
+	}
+}
+
+
+void GameController::LogMessage() {
+	if (combatLogTextBox) {
+		combatLogTextBox->LogData(message);
+	}
+}
+
 
 void GameController::EnemyDied()
 {
+}
+
+void GameController::linkLogMessage(CombatLogUI* const uiElement)
+{
+	combatLogTextBox = uiElement;
+	message = "Battle Started";
+	LogMessage();
 }

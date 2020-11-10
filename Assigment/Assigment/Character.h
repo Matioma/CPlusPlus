@@ -45,9 +45,12 @@ class Character :public GameObject,public CharacterActions{
 		const std::string& GetSpriteFileName() const;
 
 
-		virtual void Attack(Character& character) { printf_s("Attacked"); };
-		virtual void Prepare() {};
-		virtual void Recover() {};
-		virtual void CastMagic(Character& character) { printf_s("CastMagic"); };
-		//virtual void MakeRandomMove(Character& target) {};
+		virtual void Attack(Character& character, std::string& logMessage) { 
+			character.health -= strength; 
+			logMessage = name +  " madly hit " + character.GetName() + "for " + std::to_string(strength);
+		};
+		virtual void Prepare(std::string& logMessage) {};
+		virtual void Recover(std::string& logMessage) {};
+		virtual bool CastMagic(Character& character, std::string& logMessage) { logMessage = "Not enough mana"; return false; };
+		virtual void MakeRandomMove(Character& target, std::string& logMessage) {};
 };

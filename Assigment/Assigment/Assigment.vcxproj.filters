@@ -99,6 +99,9 @@
     <ClCompile Include="GameController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CombatLogUI.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="GameController.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatLogUI.h">
+      <Filter>Header Files\UIElements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

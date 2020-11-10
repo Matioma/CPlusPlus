@@ -4,6 +4,7 @@
 #include "TextLabel.h"
 
 #include "GameController.h"
+#include "CombatLogUI.h"
 
 
 GamePlayScene::GamePlayScene()
@@ -28,6 +29,16 @@ void GamePlayScene::InitializeScene()
     background->SetSpriteWidth(1280);
     AddChild(background);
 
+    //Combat Log
+    {
+        //std::shared_ptr<CombatLogUI> log(new CombatLogUI());
+
+        CombatLogUI* log = new CombatLogUI();
+        gameController.linkLogMessage(log);
+        log->SetMessage("Battle Started");
+        
+        AddChild(log);
+    }
 
     //Attack Button
     {
