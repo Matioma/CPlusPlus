@@ -226,6 +226,28 @@ void Character::TrembleInFear(std::string& logMessage)
 
 void Character::MakeRandomMove(Character& target, std::string& logMessage)
 {
+	int attackChance = 30;
+	int pepareChance = 25;
+	int recoverChance = 5;
+	int castMagicChance = 25;
+	int trembleInFearChance = 15;
 
+	int randomValue = rand() % 100;
 
+	if (randomValue < attackChance) {
+		Attack(target, logMessage);
+		return;
+	}
+	else if (randomValue < attackChance + pepareChance) {
+		Prepare(logMessage);
+	}
+	else if (randomValue < attackChance + pepareChance + recoverChance) {
+		Recover(logMessage);
+	}
+	else if (randomValue < attackChance + pepareChance + recoverChance + castMagicChance) {
+		CastMagic(target, logMessage);
+	}
+	else {
+		TrembleInFear(logMessage);
+	}
 }

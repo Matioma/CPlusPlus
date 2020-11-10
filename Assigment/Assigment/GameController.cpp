@@ -1,5 +1,6 @@
 #include "GameController.h"
 #include <iostream>
+#include "DataProcessor.h"
 
 GameController::GameController(){
 
@@ -9,6 +10,7 @@ GameController::GameController(){
 GameController::GameController(const Character& player)
 {
 	this->player = std::make_shared<Character>(player);
+	
 	SetNewEnemy();
 	
 }
@@ -20,33 +22,36 @@ void GameController::SetNewEnemy()
 		chanceForExtraPoint += changeIncreasePerRound;
 	}
 
+
+	
 	int randomValue = rand() % 100;
 	if (randomValue > chanceForExtraPoint) {
 		EnemiesAttributes++;
 	}
 
 	this->enemy = std::make_shared<Character>(characterBuilder.CreateCharacter(EnemiesAttributes));
-
-	
-	
-
-	
 }
 
 void GameController::CharacterAttacked()
 {
+	
+
+	if (player->IsDead()) {
+		return;
+	}
+
+
 	//Start new Round
 	if (enemy->IsDead() || enemy->IsInsane()) {
+		HighScore += this->enemy->pointsWorth;
 		SetNewEnemy();
 		return;
 	}
 
 
 
-	//Player attck enemy
-	if (playerMove) {
-		this->player->Attack(*this->enemy.get(), message);
-	}
+	//Player attack enemy
+	this->player->Attack(*this->enemy.get(), message);
 	LogMessage();
 
 
@@ -70,20 +75,26 @@ void GameController::CharacterAttacked()
 
 void GameController::CharacterPrepared()
 {
-	if (playerMove) {
-		this->player->Prepare(message);
-		playerMove = false;
+	if (player->IsDead() || enemy->IsDead()) {
+		return;
 	}
+
+	this->player->Prepare(message);
+	playerMove = false;
+
 	LogMessage();
 	EnemyMove();
 }
 
 void GameController::CharacterRecovered()
 {
-	if (playerMove) {
-		this->player->Recover(message);
-		playerMove = false;
+	if (player->IsDead() || enemy->IsDead()) {
+		return;
 	}
+
+	this->player->Recover(message);
+	playerMove = false;
+
 	LogMessage();
 	EnemyMove();
 }
@@ -91,20 +102,39 @@ void GameController::CharacterRecovered()
 
 void GameController::CharacterCastMagic()
 {
+	if (player->IsDead() || enemy->IsDead()) {
+		return;
+	}
+
+
 	if (enemy->IsDead() || enemy->IsInsane()) {
+		HighScore += this->enemy->pointsWorth;
 		SetNewEnemy();
 		return;
 	}
 
 
-	if (playerMove) {
-		this->player->CastMagic(*this->enemy.get(), message);
-		playerMove = false;
-	}
+	this->player->CastMagic(*this->enemy.get(), message);
+	playerMove = false;
 	LogMessage();
 
+
+	//If enemy Died
+	if (enemy->IsDead()) {
+		LogMessage(this->player->GetName() + " slained " + this->enemy->GetName());
+
+
+		if (this->player->IsPrepared()) {
+			LogMessage(this->player->GetName() + "Lost his prepared Effect ");
+			this->player->ResetPrepaired();
+		}
+		return;
+	}
+
+
+
 	if (player->IsInsane()) {
-		LogMessage(player->GetName() + "Got insane you lost" );
+		LogMessage(player->GetName() + "Got insane, you lost" );
 	}
 
 	if (!playerMove) {
@@ -115,15 +145,14 @@ void GameController::CharacterCastMagic()
 
 
 void GameController::EnemyMove() {
-	message = "Enemy move was";
-	if (!playerMove) {
-		this->enemy->MakeRandomMove(*this->player.get(),message);
-		playerMove = true;
+	this->enemy->MakeRandomMove(*this->player.get(),message);
+	
+	LogMessage();
+	
 
 
-		if (player->IsDead() || player->IsInsane()) {
-			OnPlayerDeath();
-		}
+	if (player->IsDead() || player->IsInsane()) {
+		OnPlayerDeath();
 	}
 }
 
@@ -143,10 +172,11 @@ void GameController::LogMessage(std::string message)
 }
 
 void GameController::OnPlayerDeath() {
-	message = "You have died \n";
-	message = "Your score is: " +  HighScore;
+	LogMessage("You have died");
+	LogMessage("Your score is: " + std::to_string(HighScore));
 
-	LogMessage(message);
+	DataProccesor::GetInstance().SaveData("test");
+	//SaveData();
 }
 
 

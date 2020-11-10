@@ -120,6 +120,9 @@
     <ClCompile Include="EnemyUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DataProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -208,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="EnemyUI.h">
       <Filter>Header Files\UI\CharacterUI</Filter>
+    </ClInclude>
+    <ClInclude Include="DataProcessor.h">
+      <Filter>Header Files\Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

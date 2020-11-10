@@ -30,6 +30,8 @@ class Character :public GameObject,public CharacterActions{
 	bool isPrepared = false;
 
 	public:
+		int pointsWorth = 10;
+
 		float getHealthPercent();
 		float getSanityPercent();
 	

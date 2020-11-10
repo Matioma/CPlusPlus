@@ -146,6 +146,7 @@
     <ClCompile Include="CharacterSelectScene.cpp" />
     <ClCompile Include="CharacterUI.cpp" />
     <ClCompile Include="CombatLogUI.cpp" />
+    <ClCompile Include="DataProcessor.cpp" />
     <ClCompile Include="EnemyUI.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="CharacterSelectScene.h" />
     <ClInclude Include="CharacterStats.h" />
     <ClInclude Include="CombatLogUI.h" />
+    <ClInclude Include="DataProcessor.h" />
     <ClInclude Include="EnemyUI.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GamePlayScene.h" />
