@@ -87,7 +87,7 @@ void MainMenuScene::InitializeScene()
 			
 			
 			if (characters[0].getCurrentHealth()<=0) {
-				
+				AudioManager::GetInstance().PlaySound("Audio/defeat.wav");
 			}
 			else {
 				AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
