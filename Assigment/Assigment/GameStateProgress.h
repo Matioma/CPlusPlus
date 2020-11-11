@@ -1,13 +1,15 @@
 #pragma once
 #include "Character.h"
 #include "GameController.h"
+#include <vector>
+
+
 class GameStateProgress {
-	const GameController& gameController;
 
 
 	public:
-		GameStateProgress(const GameController& pGameController);
+		GameStateProgress();
 
-		void SaveGameState(std::string fileName ="data.cmgt");
-		void LoadGameState(std::string file);
+		void SaveGameState(const GameController& gameController, std::string fileName ="data.cmgt");
+		std::vector<Character> LoadGameState(std::string file="data.cmgt");
 };

@@ -1,6 +1,9 @@
 #include "Character.h"
 
 #include <math.h>
+#include <algorithm>
+#include <sstream>
+#include <iostream>
 
 float Character::getHealthPercent()
 {
@@ -48,11 +51,39 @@ void Character::RestoreSanity(int amount) {
 	if (currentSanity > maxSanity) {
 		currentSanity = maxSanity;
 	}
-
 }
 
 Character::Character()
 {
+
+}
+
+Character::Character(std::string& data)
+{
+	std::stringstream stream(data);
+	
+	std::string message;
+	std::vector<std::string> dataVector;
+
+
+	while (std::getline(stream, message, ',')) {
+		dataVector.push_back(message);
+		std::cout<< message <<std::endl;
+	}
+
+	this->SetName(dataVector[0]);
+	this->SetSpriteFileName(dataVector[1]);
+
+	this->SetStrength(stoi(dataVector[6]));
+
+	
+	this->SetAgility(stoi(dataVector[7]));
+	this->SetWits(stoi(dataVector[8]));
+	
+	this->currentHealth = stoi(dataVector[2]);
+	this->maxHealth = stoi(dataVector[3]);
+	this->currentSanity = stoi(dataVector[4]);
+	this->maxSanity = stoi(dataVector[5]);
 }
 
 Character::Character(const Character& character)
@@ -63,6 +94,12 @@ Character::Character(const Character& character)
 	this->SetStrength(character.GetStrength());
 	this->SetAgility(character.GetAgility());
 	this->SetWits(character.GetWits());
+
+
+	this->currentHealth = character.getCurrentHealth();
+	this->maxHealth = character.getMaxHealth();
+	this->currentSanity = character.getCurrentSanity();
+	this->maxSanity = character.getMaxSanity();
 }
 
 Character::~Character()

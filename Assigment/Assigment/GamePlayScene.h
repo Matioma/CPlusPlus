@@ -12,13 +12,11 @@
 class GamePlayScene :public Scene {
 	GameController gameController;
 
-
-
-
 public:
 
 	GamePlayScene();
 	GamePlayScene(const Character& player);
+	GamePlayScene(const Character& player, const Character& enemy);
 	~GamePlayScene();
 
 

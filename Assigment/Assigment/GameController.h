@@ -41,6 +41,8 @@ class GameController: public GameObject {
 		GameController();
 		GameController(const Character& player);
 
+		GameController(const Character& player, const Character& enemy);
+
 		void SetNewEnemy();
 		
 		void CharacterAttacked();

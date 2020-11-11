@@ -22,8 +22,13 @@ GamePlayScene::GamePlayScene()
 
 GamePlayScene::GamePlayScene(const Character& player):gameController(player)
 {
+    InitializeScene();
+}
 
-    std::cout << player.GetAgility() << " " << player.GetStrength() << " " << player.GetWits() << " " << std::endl;
+
+
+GamePlayScene::GamePlayScene(const Character& player, const Character& enemy) :gameController(player,enemy){
+   
     InitializeScene();
 }
 

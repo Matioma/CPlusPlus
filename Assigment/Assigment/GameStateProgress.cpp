@@ -3,14 +3,17 @@
 #include <fstream>
 #include <iostream>
 
-GameStateProgress::GameStateProgress(const GameController& pGameController):gameController(pGameController)
+GameStateProgress::GameStateProgress()
 {
 }
 
-void GameStateProgress::SaveGameState(std::string fileName)
+
+
+
+void GameStateProgress::SaveGameState(const GameController& gameController,std::string fileName)
 {
 	std::ofstream file(fileName);
-	std::cout << *gameController.player << std::endl;
+	
 	file << *gameController.player.get();
 	file << *gameController.enemy.get();
 	file.close();
@@ -19,8 +22,14 @@ void GameStateProgress::SaveGameState(std::string fileName)
 
 
 
-void GameStateProgress::LoadGameState(std::string file) {
+std::vector<Character> GameStateProgress::LoadGameState(std::string file) {
+	std::vector<Character> characters;
 
+	std::ifstream saveFile(file);
+	std::string line;
 
-
+	while (std::getline(saveFile, line)) {
+		characters.push_back(Character(line));
+	}
+	return characters;
 }

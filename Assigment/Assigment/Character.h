@@ -4,6 +4,7 @@
 
 #include "CharacterActions.h";
 #include <ostream>
+#include <string>
 
 class Character :public GameObject, public CharacterActions {
 	std::string name = "Name";
@@ -59,6 +60,7 @@ public:
 	void RestoreSanity(int amount);
 
 	Character();
+	Character(std::string& data);
 	Character(const Character& character);
 	~Character();
 

@@ -12,9 +12,15 @@ GameController::GameController(){
 GameController::GameController(const Character& player)
 {
 	this->player = std::make_shared<Character>(player);
-	
-
 	SetNewEnemy();
+}
+
+
+GameController::GameController(const Character& player, const Character& enemy)
+{
+	this->player = std::make_shared<Character>(player);
+	//std::cout << this->player->getCurrentHealth() <<std::endl;
+	this->enemy = std::make_shared<Character>(enemy);
 }
 
 void GameController::SetNewEnemy()
@@ -23,14 +29,11 @@ void GameController::SetNewEnemy()
 	if (combatNumber % 3 == 0) {
 		chanceForExtraPoint += changeIncreasePerRound;
 	}
-
-
 	
 	int randomValue = rand() % 100;
 	if (randomValue > chanceForExtraPoint) {
 		EnemiesAttributes++;
 	}
-
 	this->enemy = std::make_shared<Character>(characterBuilder.CreateCharacter(EnemiesAttributes));
 }
 
@@ -136,8 +139,8 @@ void GameController::CharacterCastMagic()
 }
 
 void GameController::OnGameQuit() {
-	GameStateProgress gameProgress(*this);
-	gameProgress.SaveGameState();
+	GameStateProgress gameProgress;
+	gameProgress.SaveGameState(*this);
 }
 
 
@@ -192,6 +195,7 @@ void GameController::Step()
 {
 	if (playerUI) {
 		playerUI->UpdateValues(*player.get());
+		std::cout << player->getCurrentHealth();
 	}
 	if (enemyUI) {
 		enemyUI->UpdateValues(*enemy.get());
