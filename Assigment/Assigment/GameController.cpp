@@ -4,6 +4,7 @@
 
 #include "Character.h"
 #include "GameStateProgress.h"
+#include "AudioManager.h"
 GameController::GameController(){
 
 }
@@ -58,7 +59,7 @@ void GameController::CharacterAttacked()
 	//If enemy Died
 	if (enemy->IsDead()) {
 		LogMessage(this->player->GetName() + " slained " + this->enemy->GetName());
-
+		AudioManager::GetInstance().PlaySound("Audio/win.wav");
 		
 		if (this->player->IsPrepared()) {
 			LogMessage(this->player->GetName() + "Lost his prepared Effect ");
@@ -119,6 +120,7 @@ void GameController::CharacterCastMagic()
 	//If enemy Died
 	if (enemy->IsDead()) {
 		LogMessage(this->player->GetName() + " slained " + this->enemy->GetName());
+		AudioManager::GetInstance().PlaySound("Audio/win.wav");
 
 		if (this->player->IsPrepared()) {
 			LogMessage(this->player->GetName() + "Lost his prepared Effect ");
@@ -172,7 +174,7 @@ void GameController::LogMessage(std::string message)
 void GameController::OnPlayerDeath() {
 	LogMessage("You have died");
 	LogMessage("Your score is: " + std::to_string(HighScore));
-
+	AudioManager::GetInstance().PlaySound("Audio/defeat.wav");
 	DataProccesor::GetInstance().SaveHighScore(HighScore);
 	//SaveData();
 }

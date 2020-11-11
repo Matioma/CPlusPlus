@@ -188,6 +188,8 @@ void Character::Attack(Character& character, std::string& logMessage)
 
 		if (rand() % 100 <= dodgeChance) {
 			logMessage = character.GetName() + " tricked " + GetName() + " and evaded the attack";
+			
+			AudioManager::GetInstance().PlaySound("Audio/Dodge.wav");
 			return;
 		}
 	}
@@ -209,6 +211,7 @@ void Character::Attack(Character& character, std::string& logMessage)
 	}
 
 	character.Damage(amountOfDamage);
+	AudioManager::GetInstance().PlaySound("Audio/hit.wav");
 	logMessage = name + " madly hit " + character.GetName() + " for " + std::to_string(amountOfDamage) + " damage";
 }
 
