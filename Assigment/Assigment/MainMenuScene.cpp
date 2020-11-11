@@ -14,6 +14,7 @@
 #include "GameStateProgress.h"
 #include "GamePlayScene.h"
 #include <iostream>
+#include "AudioManager.h"
 
 MainMenuScene::~MainMenuScene()
 {
@@ -82,9 +83,17 @@ void MainMenuScene::InitializeScene()
 				printf_s("No character Data");
 				return;
 			}
-			std::cout << characters[0];
-			std::cout << characters[1];
-			SceneManager::GetInstance()->OpenScene(new GamePlayScene(characters[0], characters[1]));
+			//AudioManager::GetInstance().StopBackgroundMusic();
+			
+			
+			if (characters[0].getCurrentHealth()<=0) {
+				
+			}
+			else {
+				AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
+				SceneManager::GetInstance()->OpenScene(new GamePlayScene(characters[0], characters[1]));
+			}
+
 		};
 		AddChild(button);
 	}
@@ -98,6 +107,8 @@ void MainMenuScene::InitializeScene()
 		button->setPosition(873, 385);
 		button->SetSpriteSize(279, 47);
 		button->onClick = []() {
+
+			AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
 			SceneManager::GetInstance()->OpenScene(new CharacterSelectScene());
 		};
 		AddChild(button);
@@ -113,6 +124,7 @@ void MainMenuScene::InitializeScene()
 		button->SetSpriteSize(279, 47);
 		button->SetClickFunction(
 			[this]() {
+				AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
 				DataProccesor::GetInstance().ResetHighScores();
 				highScore->DisplayScore(DataProccesor::GetInstance().getScores());
 			}
@@ -128,7 +140,10 @@ void MainMenuScene::InitializeScene()
 		button->setPosition(873, 505);
 		//button->move(0, 240);
 		button->SetSpriteSize(279, 47);
-		button->onClick = []() {SceneManager::GetInstance()->CloseApplication(); };
+		button->onClick = []() {
+			AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
+			SceneManager::GetInstance()->CloseApplication(); 
+		};
 		AddChild(button);
 	}
 }

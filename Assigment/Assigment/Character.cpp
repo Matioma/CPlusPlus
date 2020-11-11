@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iostream>
+#include "AudioManager.h"
 
 float Character::getHealthPercent()
 {
@@ -242,6 +243,8 @@ bool Character::CastMagic(Character& character, std::string& logMessage)
 {
 	int damage = rand() % 7 - 3;
 	if (damage >= 0) {
+		AudioManager::GetInstance().PlaySound("Audio/MagicUsed.wav");
+		
 		character.Damage(damage);
 		logMessage = GetName() + " did " + std::to_string(damage) + " to " + character.GetName() + "by casting a weird green fire";
 	}

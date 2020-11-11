@@ -19,7 +19,6 @@ GameController::GameController(const Character& player)
 GameController::GameController(const Character& player, const Character& enemy)
 {
 	this->player = std::make_shared<Character>(player);
-	//std::cout << this->player->getCurrentHealth() <<std::endl;
 	this->enemy = std::make_shared<Character>(enemy);
 }
 
@@ -40,6 +39,7 @@ void GameController::SetNewEnemy()
 void GameController::CharacterAttacked()
 {
 	if (player->IsDead()) {
+
 		return;
 	}
 
@@ -119,7 +119,6 @@ void GameController::CharacterCastMagic()
 	//If enemy Died
 	if (enemy->IsDead()) {
 		LogMessage(this->player->GetName() + " slained " + this->enemy->GetName());
-
 
 		if (this->player->IsPrepared()) {
 			LogMessage(this->player->GetName() + "Lost his prepared Effect ");

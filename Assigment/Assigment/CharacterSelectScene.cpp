@@ -19,23 +19,15 @@ CharacterSelectScene::~CharacterSelectScene()
 
 void CharacterSelectScene::InitializeScene()
 {
-
     character =  characterBuilder.CreateCharacter(8);
-    
-
-
     Sprite* background = new Sprite(0, 0, "Background.png");
     background->SetSpriteWidth(1280);
     AddChild(background);
-
-  
-
 
     Sprite* avatarBackground = new Sprite(0, 0, "CharacterPlaceHolder1.png");
     avatarBackground->setPosition(322, 180);
     avatarBackground->SetSpriteSize(128, 128);
     AddChild(background);
-
 
     SpriteBinded* avatar = new SpriteBinded(character.GetSpriteFileName());
     avatar->setPosition(322, 180);
@@ -110,6 +102,7 @@ void CharacterSelectScene::InitializeScene()
     CancelButton->setPosition(80, 599);
     CancelButton->SetSpriteSize(290, 66);
     CancelButton->onClick = []() {
+        AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
         SceneManager::GetInstance()->OpenPreviousScene();
     };
     AddChild(CancelButton);
@@ -119,6 +112,7 @@ void CharacterSelectScene::InitializeScene()
     PlayButton->setPosition(897, 599);
     PlayButton->SetSpriteSize(290, 66);
     PlayButton->onClick = [this]() {
+        AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
         SceneManager::GetInstance()->OpenScene(new GamePlayScene(this->character));
     };
     AddChild(PlayButton);
@@ -128,6 +122,7 @@ void CharacterSelectScene::InitializeScene()
     RandomizeButton->setPosition(897, 180);
     RandomizeButton->SetSpriteSize(290, 66);
     RandomizeButton->onClick = [this]() {
+        AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
         this->character = this->characterBuilder.CreateCharacter(8);
     };
     AddChild(RandomizeButton);

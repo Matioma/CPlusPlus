@@ -14,6 +14,7 @@
 #include <iostream>
 #include "PlayerUI.h"
 #include "EnemyUI.h"
+#include "AudioManager.h"
 
 GamePlayScene::GamePlayScene()
 {
@@ -156,6 +157,7 @@ void GamePlayScene::InitializeScene()
     button->setPosition(897, 599);
     button->SetSpriteSize(150, 50);
     button->onClick = [this]() {
+        AudioManager::GetInstance().PlaySound("Audio/ButtonClick.wav");
         gameController.OnGameQuit();
         SceneManager::GetInstance()->OpenPreviousScene();
         SceneManager::GetInstance()->OpenPreviousScene();
