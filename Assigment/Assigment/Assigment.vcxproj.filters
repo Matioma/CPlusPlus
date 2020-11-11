@@ -227,5 +227,8 @@
     <ClInclude Include="GameStateProgress.h">
       <Filter>Header Files\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

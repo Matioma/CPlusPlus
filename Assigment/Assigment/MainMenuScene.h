@@ -7,6 +7,8 @@ class MainMenuScene :public Scene {
 	HighScore* highScore;
 
 
+
+
 public:
 	MainMenuScene();
 	~MainMenuScene();

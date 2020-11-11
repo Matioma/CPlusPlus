@@ -8,7 +8,7 @@
 #include "SpriteBinded.h"
 
 CharacterSelectScene::CharacterSelectScene() {
-   
+    backgroundMusicFile = "Audio/champtionSelect.wav";
 	InitializeScene();
 }
 

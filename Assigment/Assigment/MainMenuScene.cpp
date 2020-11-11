@@ -1,5 +1,5 @@
 #include "MainMenuScene.h"
-
+#include <SFML/Audio.hpp>
 
 
 #include "CharacterSelectScene.h"
@@ -20,14 +20,16 @@ MainMenuScene::~MainMenuScene()
 }
 
 MainMenuScene::MainMenuScene() :Scene() {
+	backgroundMusicFile = "Audio/bensound-epic.wav";
 	DataProccesor::GetInstance().LoadHighScore();
 	InitializeScene();
-
-
 }
 
 void MainMenuScene::InitializeScene()
 {
+
+
+
 
 	Sprite* background = new Sprite(0, 0, "Background.png");
 	background->SetSpriteWidth(1280);

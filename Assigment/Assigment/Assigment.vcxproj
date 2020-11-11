@@ -190,6 +190,7 @@
     <ClInclude Include="CharacterUI.h" />
     <ClInclude Include="PlayerUI.h" />
     <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="SpriteBinded.h" />
     <ClInclude Include="StringLabel.h" />
     <ClInclude Include="TextBox.h" />

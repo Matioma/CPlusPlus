@@ -4,6 +4,7 @@
 #include "MainMenuScene.h"
 #include "GamePlayScene.h"
 #include "InputManager.h"
+#include <SFML\Audio\Music.hpp>
 
 
 
@@ -18,10 +19,14 @@ int main()
     InputManager inputManager(window);
 
 
+ 
+
     sceneManager.OpenScene(new MainMenuScene());
+   /* sceneManager.SetBackgroundMusic("Audio/bensound-epic.wav");*/
 
     while (window.isOpen())
     {
+      
         //Register input events
         inputManager.PollEvents();
 

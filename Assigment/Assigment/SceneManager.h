@@ -3,6 +3,7 @@
 #include <stack>
 #include "Scene.h"
 #include "IRenewable.h"
+#include <SFML\Audio\Music.hpp>
 
 class SceneManager{
 	public:
@@ -21,6 +22,11 @@ class SceneManager{
 		void Draw() const;
 		void Step();
 		void CloseApplication();
+
+
+		sf::Music music;
+		void SetBackgroundMusic(std::string fileName);
+		
 private:
 	sf::RenderWindow& window;
 	

@@ -33,12 +33,14 @@ SceneManager* const SceneManager::GetInstance()
 void SceneManager::OpenScene(Scene* SceneToOpen)
 {
 	loadedScenes.push(SceneToOpen);
+	SetBackgroundMusic(GetActiveScene().backgroundMusicFile);
 }
 
 void SceneManager::OpenPreviousScene()
 {
 	if (loadedScenes.size() > 1) {
 		loadedScenes.pop();
+		SetBackgroundMusic(GetActiveScene().backgroundMusicFile);
 	}
 }
 
@@ -60,3 +62,16 @@ void SceneManager::Step()
 void SceneManager::CloseApplication() {
 	this->window.close();
 }
+
+void SceneManager::SetBackgroundMusic(std::string fileName)
+{
+	music.stop();
+	if (!music.openFromFile(fileName)) {
+		printf_s("unable to open the file %s", fileName);
+	}
+	music.play();
+	
+}
+
+
+

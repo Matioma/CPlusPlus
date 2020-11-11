@@ -10,7 +10,7 @@ class Scene: public GameObject {
 	Scene();
 	~Scene();
 
-
+	std::string backgroundMusicFile = "";
 
 
 

@@ -70,13 +70,9 @@ Character::Character(std::string& data)
 		dataVector.push_back(message);
 		std::cout<< message <<std::endl;
 	}
-
 	this->SetName(dataVector[0]);
 	this->SetSpriteFileName(dataVector[1]);
-
 	this->SetStrength(stoi(dataVector[6]));
-
-	
 	this->SetAgility(stoi(dataVector[7]));
 	this->SetWits(stoi(dataVector[8]));
 	
