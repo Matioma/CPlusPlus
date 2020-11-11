@@ -151,7 +151,8 @@ void GamePlayScene::InitializeScene()
     button->SetText("Quit");
     button->setPosition(897, 599);
     button->SetSpriteSize(150, 50);
-    button->onClick = []() {
+    button->onClick = [this]() {
+        gameController.OnGameQuit();
         SceneManager::GetInstance()->OpenPreviousScene();
         SceneManager::GetInstance()->OpenPreviousScene();
         printf_s("Go to main Menu Scene \n"); };

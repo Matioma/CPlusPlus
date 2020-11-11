@@ -251,3 +251,10 @@ void Character::MakeRandomMove(Character& target, std::string& logMessage)
 		TrembleInFear(logMessage);
 	}
 }
+
+std::ostream& operator <<(std::ostream& os,const Character& character) {
+	os << character.GetName() << ","  << character.GetSpriteFileName() <<"," <<character.getCurrentHealth() << "," << character.getMaxHealth() << ",";
+	os << character.getCurrentSanity() << "," << character.getMaxSanity() << "," << character.GetStrength() << "," << character.GetAgility() << ",";
+	os << character.GetWits() << "\n";
+	return os;
+}

@@ -5,9 +5,11 @@
 #include "GamePlayScene.h"
 #include "InputManager.h"
 
+
+
+
 int main()
 {
-
 
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Nether FIghts");
     window.setFramerateLimit(60);

@@ -1,7 +1,9 @@
 #include "GameController.h"
-#include <iostream>
 #include "DataProcessor.h"
+#include <iostream>
 
+#include "Character.h"
+#include "GameStateProgress.h"
 GameController::GameController(){
 
 }
@@ -11,8 +13,8 @@ GameController::GameController(const Character& player)
 {
 	this->player = std::make_shared<Character>(player);
 	
+
 	SetNewEnemy();
-	
 }
 
 void GameController::SetNewEnemy()
@@ -34,12 +36,9 @@ void GameController::SetNewEnemy()
 
 void GameController::CharacterAttacked()
 {
-	
-
 	if (player->IsDead()) {
 		return;
 	}
-
 
 	//Start new Round
 	if (enemy->IsDead() || enemy->IsInsane()) {
@@ -48,12 +47,9 @@ void GameController::CharacterAttacked()
 		return;
 	}
 
-
-
 	//Player attack enemy
 	this->player->Attack(*this->enemy.get(), message);
 	LogMessage();
-
 
 
 	//If enemy Died
@@ -113,11 +109,9 @@ void GameController::CharacterCastMagic()
 		return;
 	}
 
-
 	this->player->CastMagic(*this->enemy.get(), message);
 	playerMove = false;
 	LogMessage();
-
 
 	//If enemy Died
 	if (enemy->IsDead()) {
@@ -131,8 +125,6 @@ void GameController::CharacterCastMagic()
 		return;
 	}
 
-
-
 	if (player->IsInsane()) {
 		LogMessage(player->GetName() + "Got insane, you lost" );
 	}
@@ -143,13 +135,17 @@ void GameController::CharacterCastMagic()
 	
 }
 
+void GameController::OnGameQuit() {
+	GameStateProgress gameProgress(*this);
+	gameProgress.SaveGameState();
+}
+
+
 
 void GameController::EnemyMove() {
 	this->enemy->MakeRandomMove(*this->player.get(),message);
 	
 	LogMessage();
-	
-
 
 	if (player->IsDead() || player->IsInsane()) {
 		OnPlayerDeath();

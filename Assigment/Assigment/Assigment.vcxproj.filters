@@ -126,6 +126,9 @@
     <ClCompile Include="HighScore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameStateProgress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -220,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="HighScore.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateProgress.h">
+      <Filter>Header Files\Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

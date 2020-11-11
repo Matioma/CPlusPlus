@@ -48,6 +48,8 @@ class GameController: public GameObject {
 		void CharacterRecovered();
 		void CharacterCastMagic();
 
+		void OnGameQuit();
+
 		void EnemyMove();
 		
 		void EnemyDied();
