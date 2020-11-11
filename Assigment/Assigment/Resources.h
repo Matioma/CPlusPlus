@@ -6,8 +6,6 @@ class Resources {
 	public:
 		static Resources& GetInstance();
 
-
-
 		bool LoadTexture(const std::string path);
 		sf::Texture* GetTexture(const std::string path);
 

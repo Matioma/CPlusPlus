@@ -23,10 +23,6 @@ class SceneManager{
 		void Step();
 		void CloseApplication();
 
-
-		sf::Music music;
-		void SetBackgroundMusic(std::string fileName);
-		
 private:
 	sf::RenderWindow& window;
 	

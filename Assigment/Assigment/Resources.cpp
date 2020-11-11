@@ -47,7 +47,7 @@ bool Resources::LoadFont(const std::string path) {
 
 sf::Texture* Resources::GetTexture(const std::string pPath)
 {
-    std::string path = "../Resources/Textures/" + pPath;
+    std::string path = "./Resources/Textures/" + pPath;
 
     // If the texture with "path" key is not present in the map
     if (!LoadedTextures.count(path)) {
@@ -75,7 +75,7 @@ sf::Texture* Resources::GetTexture(const std::string pPath)
 /// <returns></returns>
 sf::Font* Resources::GetFont(const std::string path)
 {
-    std::string filePath = "../Resources/Fonts/" + path;
+    std::string filePath = "./Resources/Fonts/" + path;
 
     // If the font with "path" key is not present in the map
     if (!LoadedFonts.count(path)) {

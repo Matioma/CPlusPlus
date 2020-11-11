@@ -26,7 +26,6 @@ GamePlayScene::GamePlayScene(const Character& player):gameController(player)
 }
 
 
-
 GamePlayScene::GamePlayScene(const Character& player, const Character& enemy) :gameController(player,enemy){
    
     InitializeScene();
@@ -37,8 +36,6 @@ GamePlayScene::~GamePlayScene()
 	
 }
 
-
-
 void GamePlayScene::Step()
 {
     GameObject::Step();
@@ -47,6 +44,8 @@ void GamePlayScene::Step()
 
 void GamePlayScene::InitializeScene()
 {
+    backgroundMusicFile = "Audio/battle.wav";
+
     Sprite* background = new Sprite(0, 0, "WhiteBG.jpg");
     background->SetSpriteWidth(1280);
     AddChild(background);

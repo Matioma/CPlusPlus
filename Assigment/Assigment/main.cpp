@@ -6,7 +6,7 @@
 #include "InputManager.h"
 #include <SFML\Audio\Music.hpp>
 
-
+#include "AudioManager.h"
 
 
 int main()
@@ -19,6 +19,10 @@ int main()
     InputManager inputManager(window);
 
 
+    
+
+    /*AudioManager audioManger();
+  */
  
 
     sceneManager.OpenScene(new MainMenuScene());

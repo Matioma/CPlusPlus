@@ -6,6 +6,7 @@
 #include "IntLabel.h"
 #include "StringLabel.h"
 #include "SpriteBinded.h"
+#include "AudioManager.h"
 
 CharacterSelectScene::CharacterSelectScene() {
     backgroundMusicFile = "Audio/champtionSelect.wav";
@@ -18,6 +19,7 @@ CharacterSelectScene::~CharacterSelectScene()
 
 void CharacterSelectScene::InitializeScene()
 {
+
     character =  characterBuilder.CreateCharacter(8);
     
 
